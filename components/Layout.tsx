@@ -1,7 +1,6 @@
 import Head from "next/head";
-import Header from "./header";
+import Header from "./Header";
 import Footer from "./Footer";
-import Container from "./container";
 
 type Props = { title?: string };
 
