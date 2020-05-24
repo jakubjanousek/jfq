@@ -1,0 +1,16 @@
+.markdown {
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+  @apply mb-6;
+}
+
+.markdown ol {
+  @apply list-decimal pl-8;
+}
+.markdown ol li {
+  @apply mb-1;
+}

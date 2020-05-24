@@ -7,18 +7,6 @@ const todayDate = format(new Date(), "yyyy-MM-dd");
 
 type Post = { date: string };
 
-const getUniquePosts = (posts) => {
-  const slugs = new Set();
-  return posts.filter((post) => {
-    if (slugs.has(post.slug)) {
-      return false;
-    } else {
-      slugs.add(post.slug);
-      return true;
-    }
-  });
-};
-
 const postFields = `
   date,content
 `;

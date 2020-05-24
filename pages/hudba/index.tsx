@@ -11,20 +11,30 @@ const Category: React.FC<{ albums: any[]; title: string }> = ({
 }) => (
   <div className="mb-8">
     <div className="mb-4 text-2xl font-serif font-black">{title}:</div>
-    {albums.map((album) => (
-      <Link href={`/hudba/${album.slug}`} key={album.slug}>
-        <a className="hover:underline">
-          <img
-            height={200}
-            width={200}
-            alt={`Obálka ${album.nazov}`}
-            className="mb-1 block"
-            src={imageBuilder.image(album.picture).height(200).width(200).url()}
-          />
-          {album.nazov}, {format(parseISO(album.datacia_rok), "yyyy")}
-        </a>
-      </Link>
-    ))}
+    <div className="-m-4 flex flex-wrap">
+      {albums.map((album) => (
+        <div className="p-4 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+          <Link href={`/hudba/${album.slug}`} key={album.slug}>
+            <a className="hover:underline">
+              <img
+                height={200}
+                width={200}
+                alt={`Obálka ${album.nazov}`}
+                className="mb-1 block"
+                src={
+                  imageBuilder
+                    .image(album.picture)
+                    .height(200)
+                    .width(200)
+                    .url()!
+                }
+              />
+              {album.nazov}, {format(parseISO(album.datacia_rok), "yyyy")}
+            </a>
+          </Link>
+        </div>
+      ))}
+    </div>
   </div>
 );
 
@@ -48,7 +58,7 @@ const Hudba: React.FC<Props> = ({ albums }) => {
 };
 
 export async function getStaticProps({ preview = false }) {
-  const albums = await getAllAlbums(preview);
+  const albums = await getAllAlbums();
   return {
     props: { albums, preview },
   };

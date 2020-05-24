@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import { getAllPostsForHome, getFutureConcerts } from "../lib/api";
-import BlockContent from "@sanity/block-content-to-react";
 import Date from "../components/Date";
+import SanityBlock from "../components/SanityBlock";
 
 type Props = {
   posts: any[];
@@ -26,7 +26,7 @@ const Home: React.FC<Props> = ({ posts, shows, preview }) => {
               <div className="font-serif  text-m">
                 <Date dateString={post.date} />
               </div>
-              <BlockContent blocks={post.content} />
+              <SanityBlock blocks={post.content} />
             </div>
           ))}
         </div>
@@ -38,7 +38,7 @@ const Home: React.FC<Props> = ({ posts, shows, preview }) => {
                   <div className="font-serif  text-m">
                     <Date dateString={show.date} displayTime />
                   </div>
-                  <BlockContent blocks={show.content} />
+                  <SanityBlock blocks={show.content} />
                 </div>
               ))
             : "V najbližšej dobe žiaľ nemáme nič naplánované"}
