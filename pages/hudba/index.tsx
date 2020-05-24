@@ -14,7 +14,11 @@ const Category: React.FC<{ albums: any[]; title: string }> = ({
     <div className="-m-4 flex flex-wrap">
       {albums.map((album) => (
         <div className="p-4 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-          <Link href={`/hudba/${album.slug}`} key={album.slug}>
+          <Link
+            href="/hudba/[slug]"
+            as={`/hudba/${album.slug}`}
+            key={album.slug}
+          >
             <a className="hover:underline">
               <img
                 height={200}
