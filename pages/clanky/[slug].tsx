@@ -37,11 +37,13 @@ export async function getStaticPaths() {
   const allArticles = await getAllArticles();
   return {
     paths:
-      allArticles?.map((article: any) => ({
-        params: {
-          slug: article.slug.current,
-        },
-      })) || [],
+      allArticles
+        ?.filter((article: any) => !article.link)
+        .map((article: any) => ({
+          params: {
+            slug: article.slug.current,
+          },
+        })) || [],
     fallback: false,
   };
 }

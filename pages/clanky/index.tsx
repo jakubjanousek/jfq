@@ -10,18 +10,33 @@ const Articles: React.FC<Props> = ({ articles }) => {
   return (
     <Layout>
       <PageHeading>Články</PageHeading>
-      {articles.map((article) => (
-        <Link href="/clanky/[slug]" as={`/clanky/${article.slug.current}`}>
-          <a className="block mb-4">
+      {articles.map((article) => {
+        const linkContent = (
+          <>
             <div className="underline hover:no-underline">
               <strong>
                 {article.title} ({article.datacia})
               </strong>
             </div>
             <div className="no-underline">{article.excerpt}</div>
+          </>
+        );
+
+        return article.link ? (
+          <a
+            href={article.link}
+            rel="noopener noreferrer"
+            target="_blank"
+            className="block mb-4"
+          >
+            {linkContent}
           </a>
-        </Link>
-      ))}
+        ) : (
+          <Link href="/clanky/[slug]" as={`/clanky/${article.slug.current}`}>
+            <a className="block mb-4">{linkContent}</a>
+          </Link>
+        );
+      })}
     </Layout>
   );
 };
