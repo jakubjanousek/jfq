@@ -2,6 +2,7 @@ import Layout from "../components/Layout";
 import { getAllPostsForHome, getFutureConcerts } from "../lib/api";
 import Date from "../components/Date";
 import SanityBlock from "../components/SanityBlock";
+import PageSubHeading from "../components/PageSubHeading";
 
 type Props = {
   posts: any[];
@@ -20,7 +21,7 @@ const Home: React.FC<Props> = ({ posts, shows, preview }) => {
 
       <div className="flex flex-wrap -m-4">
         <div className="p-4 w-full lg:w-1/2">
-          <div className="mb-4 text-2xl font-serif font-black">Novinky:</div>
+          <PageSubHeading>Novinky:</PageSubHeading>
           {posts.map((post: any, index) => (
             <div className="mb-4" key={index}>
               <div className="font-serif  text-m">
@@ -31,7 +32,7 @@ const Home: React.FC<Props> = ({ posts, shows, preview }) => {
           ))}
         </div>
         <div className="p-4 w-full lg:w-1/2">
-          <div className="mb-4 text-2xl font-serif font-black">Koncerty:</div>
+          <PageSubHeading>Koncerty:</PageSubHeading>
           {shows.length
             ? shows.map((show: any, index) => (
                 <div className="mb-4" key={index}>

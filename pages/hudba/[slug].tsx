@@ -2,16 +2,18 @@ import Layout from "../../components/Layout";
 import { getAllAlbums, imageBuilder, getAlbum } from "../../lib/api";
 import { GetStaticProps } from "next";
 import SanityBlock from "../../components/SanityBlock";
+import PageSubHeading from "../../components/PageSubHeading";
+import PageHeading from "../../components/PageHeading";
 
 type Props = { album: any };
 
 const Album: React.FC<Props> = ({ album }) => {
   return (
     <Layout>
-      <div className="text-4xl leading-none font-serif font-extrabold">
-        {album.nazov}
+      <PageHeading>{album.nazov}</PageHeading>
+      <div className="-mt-6 mb-6 font-italic fontserif">
+        {album.datacia_plna}
       </div>
-      <div className="mb-6 font-italic fontserif">{album.datacia_plna}</div>
       <div className="-m-6 flex flex-wrap">
         <div className="p-6 w-full md:w-1/2 lg:w-1/3">
           <img
@@ -28,9 +30,7 @@ const Album: React.FC<Props> = ({ album }) => {
           <SanityBlock blocks={album.tracklist} />
         </div>
       </div>
-      <div className="mb-4 mt-8 text-2xl font-serif font-black">
-        O pesničkách:
-      </div>
+      <PageSubHeading>O pesničkách:</PageSubHeading>
       <SanityBlock blocks={album.o_pesnickach} />
     </Layout>
   );

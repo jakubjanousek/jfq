@@ -30,7 +30,7 @@ const Header: React.FC = () => {
       />
       <div className="mb-8 font-serif font-extrabold text-2xl leading-none sm:text-5xl">
         <Link href="/">
-          <a>
+          <a className="hover:underline">
             Jednofázové
             <br />
             kvasenie

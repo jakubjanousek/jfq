@@ -3,3 +3,7 @@ strong {
 
   font-weight: 800 !important;
 }
+
+.page-body p {
+  @apply mb-4;
+}

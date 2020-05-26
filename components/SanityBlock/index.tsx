@@ -5,11 +5,16 @@ import markdownStyles from "./index.module.css";
 
 type Props = {
   blocks: BlockContentProps;
+  imgLeft?: boolean;
 };
 
-const SanityBlock: React.FC<Props> = ({ blocks }) => (
+const SanityBlock: React.FC<Props> = ({ blocks, imgLeft }) => (
   <div className={markdownStyles.markdown}>
-    <BlockContent blocks={blocks} />
+    <BlockContent
+      blocks={blocks}
+      projectId={process.env.NEXT_EXAMPLE_CMS_SANITY_PROJECT_ID}
+      dataset="production"
+    />
   </div>
 );
 

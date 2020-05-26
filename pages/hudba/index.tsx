@@ -2,6 +2,7 @@ import Layout from "../../components/Layout";
 import { getAllAlbums, imageBuilder } from "../../lib/api";
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
+import PageSubHeading from "../../components/PageSubHeading";
 
 type Props = { albums: any[] };
 
@@ -10,7 +11,7 @@ const Category: React.FC<{ albums: any[]; title: string }> = ({
   title,
 }) => (
   <div className="mb-8">
-    <div className="mb-4 text-2xl font-serif font-black">{title}:</div>
+    <PageSubHeading>{title}:</PageSubHeading>
     <div className="-m-4 flex flex-wrap">
       {albums.map((album) => (
         <div className="p-4 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
