@@ -23,6 +23,11 @@ const HeaderLink: React.FC<{
 const Header: React.FC = () => {
   return (
     <div className="text-center">
+      <img
+        src="/pan.png"
+        className="pandulak block mx-auto mb-4"
+        width="40px"
+      />
       <div className="mb-8 font-serif font-extrabold text-2xl leading-none sm:text-5xl">
         <Link href="/">
           <a>
