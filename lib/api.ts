@@ -21,6 +21,14 @@ export async function getAllPostsForHome(preview: boolean) {
   return results;
 }
 
+export async function getLongFormsForHome(preview: boolean) {
+  const results = await getClient(preview)
+    .fetch(`*[_type in ["clanky", "blog"]][0..2] | order(date desc, _updatedAt desc){
+        title, date, slug, datacia, _type, excerpt
+      }`);
+  return results;
+}
+
 export async function getAllAlbums() {
   const results = await client.fetch(`*[_type == "album"] | order(date desc, _updatedAt desc){
           datacia_rok, nazov, kategoria, picture, slug
@@ -44,8 +52,9 @@ export async function getFutureConcerts(preview: boolean) {
   return results;
 }
 
-export async function getAllBlogPosts() {
-  const results = await client.fetch(`*[_type == "blog"] | order(date desc, _updatedAt desc){
+export async function getBlogPosts(limit?: number) {
+  const limitString = limit ? `[0..${limit}]` : "";
+  const results = await client.fetch(`*[_type == "blog"]${limitString} | order(date desc, _updatedAt desc){
           title, date, slug, excerpt
         }`);
   return results;
@@ -58,8 +67,9 @@ export async function getBlogPost(slug: string, preview: boolean) {
   return results;
 }
 
-export async function getAllArticles() {
-  const results = await client.fetch(`*[_type == "clanky"] | order(date desc, _updatedAt desc){
+export async function getArticles(limit?: number) {
+  const limitString = limit ? `[0..${limit}]` : "";
+  const results = await client.fetch(`*[_type == "clanky"]${limitString} | order(date desc, _updatedAt desc){
           title, date, slug, excerpt, link, datacia
         }`);
   return results;
@@ -69,5 +79,13 @@ export async function getArticle(slug: string, preview: boolean) {
   const results = await getClient(preview)
     .fetch(`*[_type == "clanky" && slug.current == "${slug}"][0] | order(date desc, _updatedAt desc)
           `);
+  return results;
+}
+
+export async function getInvites(limit?: number) {
+  const limitString = limit ? `[0..${limit}]` : "";
+  const results = await client.fetch(`*[_type == "pozvanka"]${limitString} | order(date desc, _updatedAt desc){
+          picture, date
+        }`);
   return results;
 }

@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout";
-import { getAllBlogPosts } from "../../lib/api";
+import { getBlogPosts } from "../../lib/api";
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
 import PageSubHeading from "../../components/PageSubHeading";
@@ -29,7 +29,7 @@ const Blog: React.FC<Props> = ({ blogPosts }) => {
 };
 
 export async function getStaticProps({ preview = false }) {
-  const blogPosts = await getAllBlogPosts();
+  const blogPosts = await getBlogPosts();
   return {
     props: { blogPosts, preview },
   };

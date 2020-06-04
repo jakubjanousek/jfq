@@ -1,7 +1,7 @@
 module.exports = {
   theme: {
     extend: {
-      colors: { beige: "#ffe6ba" },
+      colors: { beige: "#FFF7E8" },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
         serif: ["Playfair Display", "serif"],

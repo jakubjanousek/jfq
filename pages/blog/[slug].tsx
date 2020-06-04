@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout";
-import { getAllBlogPosts, getBlogPost } from "../../lib/api";
+import { getBlogPosts, getBlogPost } from "../../lib/api";
 import { GetStaticProps } from "next";
 import SanityBlock from "../../components/SanityBlock";
 import PageHeading from "../../components/PageHeading";
@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async ({
 };
 
 export async function getStaticPaths() {
-  const allBlogs = await getAllBlogPosts();
+  const allBlogs = await getBlogPosts();
   return {
     paths:
       allBlogs?.map((blog: any) => ({

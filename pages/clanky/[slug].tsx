@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout";
-import { getArticle, getAllArticles } from "../../lib/api";
+import { getArticle, getArticles } from "../../lib/api";
 import { GetStaticProps } from "next";
 import SanityBlock from "../../components/SanityBlock";
 import PageHeading from "../../components/PageHeading";
@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = async ({
 };
 
 export async function getStaticPaths() {
-  const allArticles = await getAllArticles();
+  const allArticles = await getArticles();
   return {
     paths:
       allArticles
