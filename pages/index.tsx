@@ -13,11 +13,13 @@ type Props = {
 const Home: React.FC<Props> = ({ posts, shows, preview }) => {
   return (
     <Layout>
-      <div className="mb-12 mx-auto max-w-2xl text-center font-serif font-bold italic text-2xl">
+      <img className="mx-auto mb-2" src="./jfq-flourish.png" />
+      <div className="mb-2 mx-auto max-w-2xl text-center font-serif font-bold italic text-2xl">
         V hudbe skupiny Jednofázové kvasenie sa mieša folk s rockom, džez s
         vážnou hudbou, country s ľudovkou a naopak – ľudovka s country, vážna
         hudba s džezom, rock s folkom a naopak...
       </div>
+      <img className="mx-auto mb-12" src="./jfq-flourish.png" />
 
       <div className="flex flex-wrap -m-4">
         <div className="p-4 w-full lg:w-1/2">

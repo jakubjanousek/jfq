@@ -2,13 +2,13 @@ import Head from "next/head";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useState } from "react";
+import { getRandomPandulak } from "./Pandulak/utils";
 
 type Props = { title?: string };
 
 const Layout: React.FC<Props> = ({ children, title }) => {
-  const backgrounds = ["bg1", "bg2", "bg3", "bg4"];
   const [bg] = useState(
-    backgrounds[Math.floor(Math.random() * backgrounds.length)]
+    getRandomPandulak()
   );
 
   return (
