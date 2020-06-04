@@ -12,18 +12,3 @@
   opacity: 0;
   transition: opacity 300ms;
 }
-
-.page-transition-enter .pandulak {
-  transform: translateY(-150%);
-}
-.page-transition-enter-active .pandulak {
-  transform: translateY(0);
-  transition: transform 300ms ease-in-out;
-}
-.page-transition-exit .pandulak {
-  transform: translateY(0);
-}
-.page-transition-exit-active .pandulak {
-  transform: translateY(-150%);
-  transition: transform 300ms ease-in-out;
-}

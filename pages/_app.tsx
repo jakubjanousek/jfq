@@ -3,10 +3,10 @@ import { PageTransition } from "next-page-transitions";
 
 import "../styles/index.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <PageTransition classNames="page-transition" timeout={300}>
-      <Component {...pageProps} />
+      <Component {...pageProps} key={router.route} />
     </PageTransition>
   );
 }

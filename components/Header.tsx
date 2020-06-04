@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
+import Pandulak from "./Pandulak";
+
+type Props = { bg: string };
 
 const HeaderLink: React.FC<{
   text: string;
@@ -20,14 +23,10 @@ const HeaderLink: React.FC<{
   );
 };
 
-const Header: React.FC = () => {
+const Header: React.FC<Props> = ({ bg }) => {
   return (
     <div className="text-center">
-      <img
-        src="/pan.png"
-        className="pandulak block mx-auto mb-4"
-        width="40px"
-      />
+      <Pandulak bg={bg} />
       <div className="mb-8 font-serif font-extrabold text-2xl leading-none sm:text-5xl">
         <Link href="/">
           <a className="hover:underline">
