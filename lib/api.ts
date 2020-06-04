@@ -30,7 +30,7 @@ export async function getAllAlbums() {
 
 export async function getAlbum(slug: string, preview: boolean) {
   const results = await getClient(preview)
-    .fetch(`*[_type == "album" && slug == "${slug}"][0] | order(date desc, _updatedAt desc){
+    .fetch(`*[_type == "album" && slug.current == "${slug}"][0] | order(date desc, _updatedAt desc){
             datacia_rok, datacia_plna, nazov, kategoria, picture, slug, data, tracklist, o_pesnickach
           }`);
   return results;

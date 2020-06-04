@@ -17,8 +17,8 @@ const Category: React.FC<{ albums: any[]; title: string }> = ({
         <div className="p-4 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
           <Link
             href="/hudba/[slug]"
-            as={`/hudba/${album.slug}`}
-            key={album.slug}
+            as={`/hudba/${album.slug.current}`}
+            key={album.slug.current}
           >
             <a className="hover:underline">
               <img

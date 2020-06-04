@@ -55,7 +55,7 @@ export async function getStaticPaths() {
     paths:
       allAlbums?.map((album: any) => ({
         params: {
-          slug: album.slug,
+          slug: album.slug.current,
         },
       })) || [],
     fallback: false,
