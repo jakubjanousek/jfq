@@ -7,7 +7,9 @@ type Props = { title?: string };
 
 const Layout: React.FC<Props> = ({ children, title }) => {
   const backgrounds = ["bg1", "bg2", "bg3", "bg4"];
-  const [bg] = useState(backgrounds[Math.floor(Math.random() * 4)]);
+  const [bg] = useState(
+    backgrounds[Math.floor(Math.random() * backgrounds.length)]
+  );
 
   return (
     <>
