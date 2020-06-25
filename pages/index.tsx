@@ -136,9 +136,9 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
                 </div>
               ))}
             </div>
-            <Link href="/novinky">
+            {/*<Link href="/novinky">
               <a className="block mt-4 underline">...viac pozvánok</a>
-            </Link>
+                    </Link>*/}
           </div>
           <HomeSubHeading>Video</HomeSubHeading>
           <iframe
