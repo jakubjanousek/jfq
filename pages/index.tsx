@@ -58,9 +58,9 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
               <SanityBlock blocks={post.content} />
             </div>
           ))}
-          <Link href="/novinky">
+          {/*<Link href="/novinky">
             <a className="underline">...viac noviniek</a>
-          </Link>
+          </Link>*/}
         </Section>
         <Section bg="bg2">
           <HomeSubHeading>Články a blogy</HomeSubHeading>
