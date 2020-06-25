@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
 import { imageBuilder } from "../../lib/api";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 type Props = {
-  coverImg?: any;
+  coverImg?: SanityImageSource;
 };
 
 const Article: React.FC<Props> = ({ children, coverImg }) => (

@@ -14,7 +14,7 @@ const HeaderLink: React.FC<{
     <Link href={href}>
       <a
         className={`inline-block px-2 py-1 ${
-          active ? "font-bold underline" : "hover:underline"
+          active ? "underline" : "hover:underline"
         }`}
       >
         {text}

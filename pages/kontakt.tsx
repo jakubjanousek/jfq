@@ -3,7 +3,7 @@ import PageHeading from "../components/PageHeading";
 import PageSubHeading from "../components/PageSubHeading";
 
 const Kontakt: React.FC = () => (
-  <Layout>
+  <Layout sideImg="/jfq-bg-sneh-together.png">
     <PageHeading>Kontakt</PageHeading>
     <PageSubHeading>telefón: 0915 272 585</PageSubHeading>
     <PageSubHeading>

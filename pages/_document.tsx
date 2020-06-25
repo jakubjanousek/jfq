@@ -15,7 +15,12 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;1,800&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
         <body className="bg-beige font-light">
           <Main />
           <NextScript />

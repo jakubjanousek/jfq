@@ -10,7 +10,7 @@ type Props = { blogPosts: any[] };
 
 const Blog: React.FC<Props> = ({ blogPosts }) => {
   return (
-    <Layout>
+    <Layout sideImg="/jfq-bg-sneh-together.png">
       <PageHeading>Blog</PageHeading>
       {blogPosts.map((blog) => (
         <Link href="/blog/[slug]" as={`/blog/${blog.slug.current}`}>

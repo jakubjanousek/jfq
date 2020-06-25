@@ -1,12 +1,12 @@
 import Layout from "../../components/Layout";
-import { getAllAlbums, imageBuilder } from "../../lib/api";
+import { getAllAlbums, imageBuilder, AlbumOverview } from "../../lib/api";
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
 import PageSubHeading from "../../components/PageSubHeading";
 
-type Props = { albums: any[] };
+type Props = { albums: AlbumOverview[] };
 
-const Category: React.FC<{ albums: any[]; title: string }> = ({
+const Category: React.FC<{ albums: AlbumOverview[]; title: string }> = ({
   albums,
   title,
 }) => (
@@ -17,8 +17,8 @@ const Category: React.FC<{ albums: any[]; title: string }> = ({
         <div className="p-4 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
           <Link
             href="/hudba/[slug]"
-            as={`/hudba/${album.slug.current}`}
-            key={album.slug.current}
+            as={`/hudba/${album.slug}`}
+            key={album.slug}
           >
             <a className="hover:underline">
               <img
@@ -44,20 +44,22 @@ const Category: React.FC<{ albums: any[]; title: string }> = ({
 );
 
 const Hudba: React.FC<Props> = ({ albums }) => {
+  const regularAlbums = albums.filter((album) => album.kategoria === "album");
+  const slnovratAlbums = albums.filter(
+    (album) => album.kategoria === "slnovrat"
+  );
+  const samplerAlbums = albums.filter((album) => album.kategoria === "sampler");
   return (
     <Layout>
-      <Category
-        albums={albums.filter((album) => album.kategoria === "album")}
-        title="Albumy"
-      />
-      <Category
-        albums={albums.filter((album) => album.kategoria === "slnovrat")}
-        title="Slnovrat"
-      />
-      <Category
-        albums={albums.filter((album) => album.kategoria === "sampler")}
-        title="Samplery"
-      />
+      {regularAlbums.length ? (
+        <Category albums={regularAlbums} title="Albumy" />
+      ) : null}
+      {slnovratAlbums.length ? (
+        <Category albums={slnovratAlbums} title="Slnovrat" />
+      ) : null}
+      {samplerAlbums.length ? (
+        <Category albums={samplerAlbums} title="Samplery" />
+      ) : null}
     </Layout>
   );
 };

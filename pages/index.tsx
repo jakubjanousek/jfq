@@ -119,7 +119,7 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
           <div className="mb-12">
             <div className="-m-4 flex items-center">
               {invites.map((invite: any) => (
-                <div className="p-4">
+                <div className="p-4" key={invite._id}>
                   <a
                     href={imageBuilder.image(invite.picture).url()!}
                     target="_blank"

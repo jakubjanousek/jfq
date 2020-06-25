@@ -1,22 +1,50 @@
 import client, { previewClient } from "./sanity";
 import { format } from "date-fns";
 import sanityImage from "@sanity/image-url";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { BlockContentProps } from "@sanity/block-content-to-react";
 const getClient = (preview: boolean) => (preview ? previewClient : client);
 
 const todayDate = format(new Date(), "yyyy-MM-dd");
 
-type Post = { date: string };
-
-const postFields = `
-  date,content
-`;
+export type AlbumOverview = {
+  datacia_rok: string;
+  nazov: string;
+  kategoria: string;
+  picture: SanityImageSource;
+  slug: string;
+};
+export type AlbumDetail = {
+  datacia_rok: string;
+  datacia_plna: string;
+  nazov: string;
+  kategoria: string;
+  picture: SanityImageSource;
+  slug: string;
+  data?: BlockContentProps;
+  disky?: AlbumDisk[];
+};
+export type AlbumDisk = { title: string; tracklist?: AlbumTrack[] };
+export type AlbumTrack = {
+  title: string;
+  autor?: string;
+  slug: { current: string };
+  o_pesnicke?: BlockContentProps;
+  text?: BlockContentProps;
+};
+export type AlbumWithLyrics = {
+  nazov: string;
+  picture: SanityImageSource;
+  slug: string;
+  disky?: AlbumDisk[];
+};
 
 export const imageBuilder = sanityImage(client);
 
 export async function getAllPostsForHome(preview: boolean) {
   const results = await getClient(preview)
     .fetch(`*[_type == "novinka"][0..2] | order(date desc, _updatedAt desc){
-        ${postFields}
+        date, content
       }`);
   return results;
 }
@@ -29,17 +57,28 @@ export async function getLongFormsForHome(preview: boolean) {
   return results;
 }
 
-export async function getAllAlbums() {
+export async function getAllAlbums(): Promise<AlbumOverview[]> {
   const results = await client.fetch(`*[_type == "album"] | order(date desc, _updatedAt desc){
-          datacia_rok, nazov, kategoria, picture, slug
+          datacia_rok, nazov, kategoria, picture, 'slug': slug.current
         }`);
   return results;
 }
 
-export async function getAlbum(slug: string, preview: boolean) {
+const hasLyrics = "defined(disky[].tracklist[].text)";
+export async function getAlbumsWithLyrics(): Promise<AlbumWithLyrics[]> {
+  const results = await client.fetch(`*[_type == "album" && ${hasLyrics}] | order(date desc, _updatedAt desc){
+          datacia_rok, nazov, kategoria, picture, 'slug': slug.current, disky
+        }`);
+  return results;
+}
+
+export async function getAlbum(
+  slug: string,
+  preview: boolean
+): Promise<AlbumDetail> {
   const results = await getClient(preview)
     .fetch(`*[_type == "album" && slug.current == "${slug}"][0] | order(date desc, _updatedAt desc){
-            datacia_rok, datacia_plna, nazov, kategoria, picture, slug, data, tracklist, o_pesnickach
+            datacia_rok, datacia_plna, nazov, kategoria, picture, 'slug': slug.current, data, disky
           }`);
   return results;
 }
@@ -47,7 +86,7 @@ export async function getAlbum(slug: string, preview: boolean) {
 export async function getFutureConcerts(preview: boolean) {
   const results = await getClient(preview)
     .fetch(`*[_type == "koncert" && date > "${todayDate}"] | order(date asc){
-          ${postFields}
+          date, content
         }`);
   return results;
 }
