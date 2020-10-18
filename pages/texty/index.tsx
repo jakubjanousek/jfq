@@ -42,8 +42,8 @@ const Hudba: React.FC<Props> = ({ albums }) => {
                       <PageSubHeading>{disk.title}</PageSubHeading>
                     )}
                     <ol className="list-decimal pl-8">
-                      {disk.tracklist?.map((track) => (
-                        <li>
+                      {disk.tracklist?.map((track, index) => (
+                        <li key={index}>
                           {track.text ? (
                             <Link
                               href="/texty/[slug]"
