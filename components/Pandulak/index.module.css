@@ -12,33 +12,29 @@
   width: 100%;
 }
 .bg1 {
-  @apply bg;
   background-position: 0 0;
 }
 .bg2 {
-  @apply bg;
   background-position: 100% 0;
 }
 .bg3 {
-  @apply bg;
   background-position: 0 100%;
 }
 .bg4 {
-  @apply bg;
   background-position: 100% 100%;
 }
 
-:global(.page-transition-enter) .pandulak {
+:global(.page-transition-enter) .transition {
   transform: translateY(-150%);
 }
-:global(.page-transition-enter-active) .pandulak {
+:global(.page-transition-enter-active) .transition {
   transform: translateY(0);
   transition: transform 300ms ease-in-out;
 }
-:global(.page-transition-exit) .pandulak {
+:global(.page-transition-exit) .transition {
   transform: translateY(0);
 }
-:global(.page-transition-exit-active) .pandulak {
+:global(.page-transition-exit-active) .transition {
   transform: translateY(-150%);
   transition: transform 300ms ease-in-out;
 }

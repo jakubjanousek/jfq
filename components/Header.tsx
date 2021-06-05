@@ -26,7 +26,7 @@ const HeaderLink: React.FC<{
 const Header: React.FC<Props> = ({ bg }) => {
   return (
     <div className="text-center">
-      <Pandulak bg={bg} />
+      <Pandulak bg={bg} transition />
       <div className="mb-8 font-serif font-extrabold text-2xl leading-none sm:text-5xl">
         <Link href="/">
           <a className="hover:underline">

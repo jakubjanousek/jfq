@@ -58,7 +58,8 @@ export async function getLongFormsForHome(preview: boolean) {
 }
 
 export async function getAllAlbums(): Promise<AlbumOverview[]> {
-  const results = await client.fetch(`*[_type == "album"] | order(date desc, _updatedAt desc){
+  const results =
+    await client.fetch(`*[_type == "album"] | order(date desc, _updatedAt desc){
           datacia_rok, nazov, kategoria, picture, 'slug': slug.current
         }`);
   return results;
@@ -66,7 +67,8 @@ export async function getAllAlbums(): Promise<AlbumOverview[]> {
 
 const hasLyrics = "defined(disky[].tracklist[].text)";
 export async function getAlbumsWithLyrics(): Promise<AlbumWithLyrics[]> {
-  const results = await client.fetch(`*[_type == "album" && ${hasLyrics}] | order(date desc, _updatedAt desc){
+  const results =
+    await client.fetch(`*[_type == "album" && ${hasLyrics}] | order(date desc, _updatedAt desc){
           datacia_rok, nazov, kategoria, picture, 'slug': slug.current, disky
         }`);
   return results;
@@ -77,9 +79,9 @@ export async function getAlbum(
   preview: boolean
 ): Promise<AlbumDetail> {
   const results = await getClient(preview)
-    .fetch(`*[_type == "album" && slug.current == "${slug}"][0] | order(date desc, _updatedAt desc){
+    .fetch(`*[_type == "album" && slug.current == "${slug}"] | order(date desc, _updatedAt desc){
             datacia_rok, datacia_plna, nazov, kategoria, picture, 'slug': slug.current, data, disky
-          }`);
+          }[0]`);
   return results;
 }
 
@@ -93,7 +95,8 @@ export async function getFutureConcerts(preview: boolean) {
 
 export async function getBlogPosts(limit?: number) {
   const limitString = limit ? `[0..${limit}]` : "";
-  const results = await client.fetch(`*[_type == "blog"]${limitString} | order(date desc, _updatedAt desc){
+  const results =
+    await client.fetch(`*[_type == "blog"]${limitString} | order(date desc, _updatedAt desc){
           title, date, slug, excerpt
         }`);
   return results;
@@ -101,29 +104,31 @@ export async function getBlogPosts(limit?: number) {
 
 export async function getBlogPost(slug: string, preview: boolean) {
   const results = await getClient(preview)
-    .fetch(`*[_type == "blog" && slug.current == "${slug}"][0] | order(date desc, _updatedAt desc)
+    .fetch(`*[_type == "blog" && slug.current == "${slug}"] | order(date desc, _updatedAt desc)[0]
           `);
   return results;
 }
 
 export async function getArticles(limit?: number) {
   const limitString = limit ? `[0..${limit}]` : "";
-  const results = await client.fetch(`*[_type == "clanky"]${limitString} | order(date desc, _updatedAt desc){
+  const results =
+    await client.fetch(`*[_type == "clanky"]${limitString} | order(date desc, _updatedAt desc){
           title, date, slug, excerpt, link, datacia
         }`);
   return results;
 }
 
 export async function getArticle(slug: string, preview: boolean) {
-  const results = await getClient(preview)
-    .fetch(`*[_type == "clanky" && slug.current == "${slug}"][0] | order(date desc, _updatedAt desc)
-          `);
+  const results = await getClient(preview).fetch(
+    `*[_type == "clanky" && slug.current == "${slug}"] | order(date desc, _updatedAt desc)[0]`
+  );
   return results;
 }
 
 export async function getInvites(limit?: number) {
   const limitString = limit ? `[0..${limit}]` : "";
-  const results = await client.fetch(`*[_type == "pozvanka"]${limitString} | order(date desc, _updatedAt desc){
+  const results =
+    await client.fetch(`*[_type == "pozvanka"]${limitString} | order(date desc, _updatedAt desc){
           picture, date
         }`);
   return results;

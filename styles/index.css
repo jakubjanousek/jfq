@@ -1,9 +1,8 @@
-/* purgecss start ignore */
 @tailwind base;
 @tailwind components;
-
-@import "./typography.css";
-@import "./page-transitions.css";
-
-/* purgecss end ignore */
 @tailwind utilities;
+
+@layer components {
+  @import "./typography.css";
+  @import "./page-transitions.css";
+}

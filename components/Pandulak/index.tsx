@@ -1,11 +1,13 @@
 import styles from "./index.module.css";
 
-type Props = { bg: string };
+type Props = { bg: string; transition?: boolean };
 
-const Pandulak: React.FC<Props> = ({ bg }) => {
+const Pandulak: React.FC<Props> = ({ bg, transition }) => {
   return (
-    <div className={styles.pandulak}>
-      <div className={styles[bg]}></div>
+    <div
+      className={`${styles.pandulak} ${transition ? styles.transition : ""}`}
+    >
+      <div className={`${styles.bg} ${styles[bg]}`}></div>
     </div>
   );
 };
