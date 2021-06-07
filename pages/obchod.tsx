@@ -10,7 +10,7 @@ const Item: React.FC<{ img: string }> = ({ img, children }) => (
 );
 
 const Kontakt: React.FC = () => (
-  <Layout sideImg="/jfq-bg-sneh-together.png">
+  <Layout sideImg="/sidebg2.png">
     <PageHeading>Obchod</PageHeading>
     <p>
       Objednať si môžete telefonicky na čísle <strong>0915 272 585</strong>{" "}

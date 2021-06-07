@@ -14,7 +14,7 @@ type Props = { album: AlbumDetail; lyrics: AlbumTrack[] };
 
 const Album: React.FC<Props> = ({ album, lyrics }) => {
   return (
-    <Layout sideImg="/jfq-bg-sneh-together.png">
+    <Layout sideImg="/sidebg4.png">
       <PageHeading>{album.nazov}</PageHeading>
       <div className="-mt-6 mb-6 font-italic fontserif">
         {album.datacia_plna}

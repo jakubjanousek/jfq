@@ -8,7 +8,7 @@ type Props = { articles: any[] };
 
 const Articles: React.FC<Props> = ({ articles }) => {
   return (
-    <Layout sideImg="/jfq-bg-sneh-together.png">
+    <Layout sideImg="/sidebg1.png">
       <PageHeading>Články</PageHeading>
       {articles.map((article) => {
         const linkContent = (
