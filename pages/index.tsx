@@ -119,7 +119,7 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
           <div className="mb-12">
             <div className="-m-4 flex items-center">
               {invites.map((invite: any) => (
-                <div className="p-4" key={invite._id}>
+                <div className="p-4" key={invite.date}>
                   <a
                     href={imageBuilder.image(invite.picture).url()!}
                     target="_blank"
@@ -142,6 +142,7 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
           </div>
           <HomeSubHeading>Video</HomeSubHeading>
           <iframe
+            loading="lazy"
             src="https://www.youtube.com/embed/ZHbKyAijx-s"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

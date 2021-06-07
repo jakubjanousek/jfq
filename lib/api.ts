@@ -65,12 +65,13 @@ export async function getAllAlbums(): Promise<AlbumOverview[]> {
   return results;
 }
 
-const hasLyrics = "defined(disky[].tracklist[].text)";
+const hasLyrics = "&& defined(disky[].tracklist[1].text)";
+// const hasLyrics = "";
 export async function getAlbumsWithLyrics(): Promise<AlbumWithLyrics[]> {
   const results =
-    await client.fetch(`*[_type == "album" && ${hasLyrics}] | order(date desc, _updatedAt desc){
-          datacia_rok, nazov, kategoria, picture, 'slug': slug.current, disky
-        }`);
+    await client.fetch(`*[_type == "album" && defined(disky[].tracklist[].text)] | order(date desc, _updatedAt desc){
+      datacia_rok, nazov, kategoria, picture, 'slug': slug.current, disky
+    }`);
   return results;
 }
 

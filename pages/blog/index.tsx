@@ -13,7 +13,11 @@ const Blog: React.FC<Props> = ({ blogPosts }) => {
     <Layout sideImg="/jfq-bg-sneh-together.png">
       <PageHeading>Blog</PageHeading>
       {blogPosts.map((blog) => (
-        <Link href="/blog/[slug]" as={`/blog/${blog.slug.current}`}>
+        <Link
+          href="/blog/[slug]"
+          as={`/blog/${blog.slug.current}`}
+          key={blog.slug.current}
+        >
           <a className="block mb-4">
             <div className="underline hover:no-underline">
               <strong>

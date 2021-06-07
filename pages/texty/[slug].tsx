@@ -20,7 +20,7 @@ const Album: React.FC<Props> = ({ album, lyrics }) => {
         {album.datacia_plna}
       </div>
       {lyrics.map((track) => (
-        <div className="mb-12" id={track.slug.current}>
+        <div className="mb-12" id={track.slug.current} key={track.slug.current}>
           <PageSubHeading>{track.title}</PageSubHeading>
           {track.text && <SanityBlock blocks={track.text} />}
         </div>

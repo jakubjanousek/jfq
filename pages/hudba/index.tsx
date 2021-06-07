@@ -14,7 +14,7 @@ const Category: React.FC<{ albums: AlbumOverview[]; title: string }> = ({
     <PageSubHeading>{title}:</PageSubHeading>
     <div className="-m-4 flex flex-wrap">
       {albums.map((album) => (
-        <div className="p-4 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+        <div className="p-4 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5" key={album.slug}>
           <Link
             href="/hudba/[slug]"
             as={`/hudba/${album.slug}`}

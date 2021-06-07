@@ -72,6 +72,7 @@ const Hudba: React.FC<Props> = ({ albums }) => {
 
 export async function getStaticProps({ preview = false }) {
   const albums = await getAlbumsWithLyrics();
+  console.log(albums);
 
   return {
     props: { albums, preview },

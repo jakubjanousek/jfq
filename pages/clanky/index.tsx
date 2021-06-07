@@ -28,11 +28,16 @@ const Articles: React.FC<Props> = ({ articles }) => {
             rel="noopener noreferrer"
             target="_blank"
             className="block mb-4"
+            key={article.slug}
           >
             {linkContent}
           </a>
         ) : (
-          <Link href="/clanky/[slug]" as={`/clanky/${article.slug.current}`}>
+          <Link
+            href="/clanky/[slug]"
+            as={`/clanky/${article.slug.current}`}
+            key={article.slug.current}
+          >
             <a className="block mb-4">{linkContent}</a>
           </Link>
         );

@@ -7,6 +7,7 @@ const VideoEmbed: React.FC<Props> = ({ src, className }) => (
     frameBorder="0"
     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
     allowFullScreen
+    loading="lazy"
   ></iframe>
 );
 

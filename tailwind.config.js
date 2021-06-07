@@ -4,7 +4,11 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      colors: { beige: "#FFF3D1", lightBeige: "rgba(252,248,245)" },
+      colors: {
+        beige: "#FFF3D1",
+        lightBeige: "rgba(252,248,245)",
+        lightGreen: "#fdfdf0",
+      },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
         serif: ["Playfair Display", "serif"],
