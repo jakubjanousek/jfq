@@ -65,32 +65,45 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
         <Section bg="bg9">
           <HomeSubHeading>Články a blogy</HomeSubHeading>
           {longForms.map((longForm: any, index) => {
-            const slug = longForm.slug.current;
+            const externalLink = longForm.link;
+            const slug = longForm?.slug?.current;
             const linkParams =
               longForm._type === "clanky"
                 ? { href: "/clanky/[slug]", as: `/clanky/${slug}` }
                 : { href: "/blog/[slug]", as: `/blog/${slug}` };
 
+            const content = (
+              <>
+                <div className="font-serif">
+                  <Date dateString={longForm.date} />
+                </div>
+                <div className="mb-1">
+                  <div className="underline hover:no-underline">
+                    <strong>{longForm.title}</strong>
+                  </div>
+                  {longForm.datacia && (
+                    <div className="italic text-sm">({longForm.datacia})</div>
+                  )}
+                </div>
+                {longForm.excerpt}
+              </>
+            );
+
             return (
               <div className="mb-4" key={index}>
-                <Link {...linkParams}>
-                  <a>
-                    <div className="font-serif">
-                      <Date dateString={longForm.date} />
-                    </div>
-                    <div className="mb-1">
-                      <div className="underline hover:no-underline">
-                        <strong>{longForm.title}</strong>
-                      </div>
-                      {longForm.datacia && (
-                        <div className="italic text-sm">
-                          ({longForm.datacia})
-                        </div>
-                      )}
-                    </div>
-                    {longForm.excerpt}
+                {externalLink ? (
+                  <a
+                    href={externalLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {content}
                   </a>
-                </Link>
+                ) : (
+                  <Link {...linkParams}>
+                    <a>{content}</a>
+                  </Link>
+                )}
               </div>
             );
           })}

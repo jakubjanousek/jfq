@@ -43,23 +43,23 @@ export const imageBuilder = sanityImage(client);
 
 export async function getAllPostsForHome(preview: boolean) {
   const results = await getClient(preview)
-    .fetch(`*[_type == "novinka"][0..2] | order(date desc, _updatedAt desc){
+    .fetch(`*[_type == "novinka"] | order(date desc, _updatedAt desc){
         date, content
-      }`);
+      }[0..2]`);
   return results;
 }
 
 export async function getLongFormsForHome(preview: boolean) {
   const results = await getClient(preview)
-    .fetch(`*[_type in ["clanky", "blog"]][0..2] | order(date desc, _updatedAt desc){
-        title, date, slug, datacia, _type, excerpt
-      }`);
+    .fetch(`*[_type in ["clanky", "blog"]] | order(date desc, _updatedAt desc){
+        title, date, slug, datacia, _type, excerpt,link
+      }[0..2]`);
   return results;
 }
 
 export async function getAllAlbums(): Promise<AlbumOverview[]> {
   const results =
-    await client.fetch(`*[_type == "album"] | order(date desc, _updatedAt desc){
+    await client.fetch(`*[_type == "album"] | order(datacia_rok asc){
           datacia_rok, nazov, kategoria, picture, 'slug': slug.current
         }`);
   return results;

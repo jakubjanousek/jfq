@@ -28,7 +28,7 @@ const Articles: React.FC<Props> = ({ articles }) => {
             rel="noopener noreferrer"
             target="_blank"
             className="block mb-4"
-            key={article.slug}
+            key={article.link}
           >
             {linkContent}
           </a>
