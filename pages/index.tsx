@@ -48,7 +48,7 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
       <Divider className="mb-12" />
 
       <div className="flex flex-wrap -m-4">
-        <Section bg="bg1">
+        <Section bg="bg2">
           <HomeSubHeading>Novinky</HomeSubHeading>
           {posts.map((post: any, index) => (
             <div className="mb-4" key={index}>
@@ -62,7 +62,7 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
             <a className="underline">...viac noviniek</a>
           </Link>*/}
         </Section>
-        <Section bg="bg2">
+        <Section bg="bg9">
           <HomeSubHeading>Články a blogy</HomeSubHeading>
           {longForms.map((longForm: any, index) => {
             const slug = longForm.slug.current;
@@ -101,7 +101,7 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
             <a className="block underline">...blog</a>
           </Link>
         </Section>
-        <Section bg="bg3">
+        <Section bg="bg16">
           <HomeSubHeading>Koncerty</HomeSubHeading>
           <div className="mb-12">
             {shows.length
