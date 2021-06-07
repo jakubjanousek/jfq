@@ -45,7 +45,7 @@ const Album: React.FC<Props> = ({ album, songInfo }) => {
           {album.disky &&
             (album.disky.length > 1 ? (
               album.disky.map((disk, index) => (
-                <div className="mb-4">
+                <div className="mb-4" key={index}>
                   CD{index + 1}
                   <br />
                   <Disk tracklist={disk.tracklist} />
@@ -57,11 +57,18 @@ const Album: React.FC<Props> = ({ album, songInfo }) => {
         </div>
       </div>
 
+      {album.o_albume && (
+        <>
+          <PageSubHeading className="mt-6">O albume:</PageSubHeading>
+          <SanityBlock blocks={album.o_albume} />
+        </>
+      )}
+
       {songInfo.length ? (
         <>
           <PageSubHeading className="mt-6">O pesničkách:</PageSubHeading>
-          {songInfo.map((song) => (
-            <p>
+          {songInfo.map((song, index) => (
+            <p key={index}>
               <strong>{song.title}</strong>
               <br />
               <SanityBlock blocks={song.o_pesnicke!} />

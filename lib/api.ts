@@ -22,6 +22,7 @@ export type AlbumDetail = {
   picture: SanityImageSource;
   slug: string;
   data?: BlockContentProps;
+  o_albume?: BlockContentProps;
   disky?: AlbumDisk[];
 };
 export type AlbumDisk = { title: string; tracklist?: AlbumTrack[] };
@@ -52,14 +53,14 @@ export async function getAllPostsForHome(preview: boolean) {
 export async function getLongFormsForHome(preview: boolean) {
   const results = await getClient(preview)
     .fetch(`*[_type in ["clanky", "blog"]] | order(date desc, _updatedAt desc){
-        title, date, slug, datacia, _type, excerpt,link
-      }[0..2]`);
+        title, date, slug, datacia, _type, excerpt
+      }`);
   return results;
 }
 
 export async function getAllAlbums(): Promise<AlbumOverview[]> {
   const results =
-    await client.fetch(`*[_type == "album"] | order(datacia_rok asc){
+    await client.fetch(`*[_type == "album"] | order(datacia_rok desc){
           datacia_rok, nazov, kategoria, picture, 'slug': slug.current
         }`);
   return results;
@@ -81,7 +82,7 @@ export async function getAlbum(
 ): Promise<AlbumDetail> {
   const results = await getClient(preview)
     .fetch(`*[_type == "album" && slug.current == "${slug}"] | order(date desc, _updatedAt desc){
-            datacia_rok, datacia_plna, nazov, kategoria, picture, 'slug': slug.current, data, disky
+            datacia_rok, datacia_plna, nazov, kategoria, picture, 'slug': slug.current, data, disky, o_albume
           }[0]`);
   return results;
 }
