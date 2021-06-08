@@ -3,12 +3,18 @@ import { getBlogPosts, getArticles } from "../../lib/api";
 import Link from "next/link";
 import PageHeading from "../../components/PageHeading";
 import Date from "../../components/Date";
+import React from "react";
+import getPageTitle from "../../utils/getPageTitle";
+import Head from "next/head";
 
 type Props = { articles: any[] };
 
 const Articles: React.FC<Props> = ({ articles }) => {
   return (
     <Layout sideImg="/sidebg1.png">
+      <Head>
+        <title>{getPageTitle("Články")}</title>
+      </Head>
       <PageHeading>Články</PageHeading>
       {articles.map((article) => {
         const linkContent = (

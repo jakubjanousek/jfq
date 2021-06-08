@@ -4,6 +4,9 @@ import PageSubHeading from "../components/PageSubHeading";
 import PagesManifestPlugin from "next/dist/build/webpack/plugins/pages-manifest-plugin";
 import Link from "next/link";
 import VideoEmbed from "../components/VideoEmbed";
+import React from "react";
+import Head from "next/head";
+import getPageTitle from "../utils/getPageTitle";
 
 const SmallFoto: React.FC<{ src: string }> = ({ src }) => (
   <Link href={src}>
@@ -15,6 +18,9 @@ const SmallFoto: React.FC<{ src: string }> = ({ src }) => (
 
 const FotoVideoPage: React.FC = () => (
   <Layout>
+    <Head>
+      <title>{getPageTitle("Foto/Video")}</title>
+    </Head>
     <div className="-m-4 flex flex-wrap">
       <div className="p-4 w-full sm:w-1/2 md:w-1/3">
         <PageSubHeading>Video</PageSubHeading>

@@ -1,10 +1,16 @@
+import Head from "next/head";
+import React from "react";
 import Layout from "../components/Layout";
 import PageHeading from "../components/PageHeading";
 import PageSubHeading from "../components/PageSubHeading";
+import getPageTitle from "../utils/getPageTitle";
 
 const ONas: React.FC = () => {
   return (
     <Layout>
+    <Head>
+      <title>{getPageTitle("O nás")}</title>
+    </Head>
       <div className="flex flex-wrap -m-4">
         <div className="p-4 w-full md:w-2/3">
           <PageHeading>Stručná história v 7. bodoch</PageHeading>

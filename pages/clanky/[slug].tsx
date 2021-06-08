@@ -5,12 +5,18 @@ import SanityBlock from "../../components/SanityBlock";
 import PageHeading from "../../components/PageHeading";
 import Date from "../../components/Date";
 import Article from "../../components/Article";
+import React from "react";
+import getPageTitle from "../../utils/getPageTitle";
+import Head from "next/head";
 
 type Props = { article: any };
 
 const ArticleDetail: React.FC<Props> = ({ article }) => {
   return (
     <Layout>
+      <Head>
+        <title>{getPageTitle(article.title)}</title>
+      </Head>
       <Article coverImg={article.cover_img}>
         <PageHeading>{article.title}</PageHeading>
         <div className="-mt-6 mb-6">{article.datacia}</div>

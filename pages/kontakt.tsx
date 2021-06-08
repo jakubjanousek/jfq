@@ -1,9 +1,14 @@
+import Head from "next/head";
 import Layout from "../components/Layout";
 import PageHeading from "../components/PageHeading";
 import PageSubHeading from "../components/PageSubHeading";
+import getPageTitle from "../utils/getPageTitle";
 
 const Kontakt: React.FC = () => (
   <Layout sideImg="/sidebg3.png">
+    <Head>
+      <title>{getPageTitle("Kontakt")}</title>
+    </Head>
     <PageHeading>Kontakt</PageHeading>
     <PageSubHeading>telefón: 0915 272 585</PageSubHeading>
     <PageSubHeading>

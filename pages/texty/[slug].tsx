@@ -10,7 +10,9 @@ import SanityBlock from "../../components/SanityBlock";
 import PageSubHeading from "../../components/PageSubHeading";
 import PageHeading from "../../components/PageHeading";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import getPageTitle from "../../utils/getPageTitle";
+import Head from "next/head";
 
 type Props = { album: AlbumDetail; lyrics: AlbumTrack[] };
 
@@ -30,6 +32,9 @@ const Album: React.FC<Props> = ({ album, lyrics }) => {
 
   return (
     <Layout sideImg="/sidebg4.png">
+      <Head>
+        <title>{getPageTitle(`Texty ${album.nazov}`)}</title>
+      </Head>
       <PageHeading>{album.nazov}</PageHeading>
       <div className="-mt-6 mb-6 font-italic fontserif">
         {album.datacia_plna}

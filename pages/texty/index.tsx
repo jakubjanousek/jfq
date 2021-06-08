@@ -8,14 +8,20 @@ import {
 } from "../../lib/api";
 import Link from "next/link";
 import PageSubHeading from "../../components/PageSubHeading";
+import React from "react";
+import getPageTitle from "../../utils/getPageTitle";
+import Head from "next/head";
 
 type Props = { albums: AlbumWithLyrics[] };
 
 // const Track: React.FC<AlbumTrack> = ({ slug }) => <></>;
 
-const Hudba: React.FC<Props> = ({ albums }) => {
+const Texty: React.FC<Props> = ({ albums }) => {
   return (
     <Layout>
+      <Head>
+        <title>{getPageTitle("Texty")}</title>
+      </Head>
       <div className="-m-4 flex flex-wrap">
         {albums.map((album) => (
           <>
@@ -78,4 +84,4 @@ export async function getStaticProps({ preview = false }) {
   };
 }
 
-export default Hudba;
+export default Texty;

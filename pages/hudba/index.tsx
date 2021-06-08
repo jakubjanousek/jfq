@@ -3,6 +3,9 @@ import { getAllAlbums, imageBuilder, AlbumOverview } from "../../lib/api";
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
 import PageSubHeading from "../../components/PageSubHeading";
+import React from "react";
+import getPageTitle from "../../utils/getPageTitle";
+import Head from "next/head";
 
 type Props = { albums: AlbumOverview[] };
 
@@ -51,6 +54,9 @@ const Hudba: React.FC<Props> = ({ albums }) => {
   const samplerAlbums = albums.filter((album) => album.kategoria === "sampler");
   return (
     <Layout>
+      <Head>
+        <title>{getPageTitle("Hudba")}</title>
+      </Head>
       {regularAlbums.length ? (
         <Category albums={regularAlbums} title="Albumy" />
       ) : null}

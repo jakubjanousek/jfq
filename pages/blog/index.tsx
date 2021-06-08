@@ -5,12 +5,18 @@ import { format, parseISO } from "date-fns";
 import PageSubHeading from "../../components/PageSubHeading";
 import PageHeading from "../../components/PageHeading";
 import Date from "../../components/Date";
+import React from "react";
+import getPageTitle from "../../utils/getPageTitle";
+import Head from "next/head";
 
 type Props = { blogPosts: any[] };
 
 const Blog: React.FC<Props> = ({ blogPosts }) => {
   return (
     <Layout sideImg="/sidebg5.png">
+      <Head>
+        <title>{getPageTitle("Blog")}</title>
+      </Head>
       <PageHeading>Blog</PageHeading>
       {blogPosts.map((blog) => (
         <Link

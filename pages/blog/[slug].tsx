@@ -5,12 +5,18 @@ import SanityBlock from "../../components/SanityBlock";
 import PageHeading from "../../components/PageHeading";
 import Date from "../../components/Date";
 import Article from "../../components/Article";
+import React from "react";
+import getPageTitle from "../../utils/getPageTitle";
+import Head from "next/head";
 
 type Props = { blog: any };
 
 const BlogPost: React.FC<Props> = ({ blog }) => {
   return (
     <Layout>
+      <Head>
+        <title>{getPageTitle(blog.title)}</title>
+      </Head>
       <Article coverImg={blog.cover_img}>
         <div className="font-italic fontserif">
           <Date dateString={blog.date} />

@@ -1,6 +1,9 @@
+import Head from "next/head";
+import React from "react";
 import Layout from "../components/Layout";
 import PageHeading from "../components/PageHeading";
 import PageSubHeading from "../components/PageSubHeading";
+import getPageTitle from "../utils/getPageTitle";
 
 const Item: React.FC<{ img: string }> = ({ img, children }) => (
   <div className="p-3 w-1/2 sm:w-1/3 md:w-1/5">
@@ -11,6 +14,9 @@ const Item: React.FC<{ img: string }> = ({ img, children }) => (
 
 const Kontakt: React.FC = () => (
   <Layout sideImg="/sidebg2.png">
+    <Head>
+      <title>{getPageTitle("Obchod")}</title>
+    </Head>
     <PageHeading>Obchod</PageHeading>
     <p>
       Objednať si môžete telefonicky na čísle <strong>0915 272 585</strong>{" "}

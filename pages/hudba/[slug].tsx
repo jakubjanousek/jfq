@@ -10,6 +10,9 @@ import { GetStaticProps } from "next";
 import SanityBlock from "../../components/SanityBlock";
 import PageSubHeading from "../../components/PageSubHeading";
 import PageHeading from "../../components/PageHeading";
+import getPageTitle from "../../utils/getPageTitle";
+import React from "react";
+import Head from "next/head";
 
 type Props = { album: AlbumDetail; songInfo: AlbumTrack[] };
 
@@ -25,6 +28,9 @@ const Disk: React.FC<{ tracklist?: AlbumTrack[] }> = ({ tracklist }) =>
 const Album: React.FC<Props> = ({ album, songInfo }) => {
   return (
     <Layout>
+      <Head>
+        <title>{getPageTitle(album.nazov)}</title>
+      </Head>
       <PageHeading>{album.nazov}</PageHeading>
       <div className="-mt-6 mb-6 font-italic fontserif">
         {album.datacia_plna}
