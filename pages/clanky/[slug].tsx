@@ -15,7 +15,7 @@ const ArticleDetail: React.FC<Props> = ({ article }) => {
   return (
     <Layout>
       <Head>
-        <title>{getPageTitle(article.title)}</title>
+        <title>{getPageTitle(`${article.title} - ${article.datacia}`)}</title>
       </Head>
       <Article coverImg={article.cover_img}>
         <PageHeading>{article.title}</PageHeading>

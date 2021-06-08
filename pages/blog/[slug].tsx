@@ -15,7 +15,7 @@ const BlogPost: React.FC<Props> = ({ blog }) => {
   return (
     <Layout>
       <Head>
-        <title>{getPageTitle(blog.title)}</title>
+        <title>{getPageTitle(`${blog.title} - blog`)}</title>
       </Head>
       <Article coverImg={blog.cover_img}>
         <div className="font-italic fontserif">
