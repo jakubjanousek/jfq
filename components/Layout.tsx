@@ -3,8 +3,10 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useState } from "react";
 import { getRandomPandulak } from "./Pandulak/utils";
+import Image from "next/image";
+import { SideImg } from "../utils/sideImgs";
 
-type Props = { title?: string; sideImg?: string };
+type Props = { title?: string; sideImg?: SideImg };
 
 const Layout: React.FC<Props> = ({ children, title, sideImg }) => {
   const [bg] = useState(getRandomPandulak());
@@ -22,7 +24,7 @@ const Layout: React.FC<Props> = ({ children, title, sideImg }) => {
               {sideImg ? (
                 <div className="-m-4 flex flex-wrap">
                   <div className="p-4 hidden w-full md:block md:w-1/4">
-                    <img src={sideImg} />
+                    <Image {...sideImg} />
                   </div>
                   <div className="p-4 w-full md:w-3/4">{children}</div>
                 </div>

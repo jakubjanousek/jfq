@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import PageHeading from "../components/PageHeading";
 import PageSubHeading from "../components/PageSubHeading";
 import getPageTitle from "../utils/getPageTitle";
+import sideImgs from "../utils/sideImgs";
 
 const Item: React.FC<{ img: string }> = ({ img, children }) => (
   <div className="p-3 w-1/2 sm:w-1/3 md:w-1/5">
@@ -13,7 +14,7 @@ const Item: React.FC<{ img: string }> = ({ img, children }) => (
 );
 
 const Kontakt: React.FC = () => (
-  <Layout sideImg="/sidebg2.png">
+  <Layout sideImg={sideImgs.ryba}>
     <Head>
       <title>{getPageTitle("Obchod")}</title>
     </Head>
