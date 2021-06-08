@@ -22,6 +22,7 @@ const Album: React.FC<Props> = ({ album, lyrics }) => {
       {lyrics.map((track) => (
         <div className="mb-12" id={track.slug.current} key={track.slug.current}>
           <PageSubHeading>{track.title}</PageSubHeading>
+          {track.autor && <div className="mb-4 -mt-4">({track.autor})</div>}
           {track.text && <SanityBlock blocks={track.text} />}
         </div>
       ))}

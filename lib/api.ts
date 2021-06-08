@@ -53,8 +53,8 @@ export async function getAllPostsForHome(preview: boolean) {
 export async function getLongFormsForHome(preview: boolean) {
   const results = await getClient(preview)
     .fetch(`*[_type in ["clanky", "blog"]] | order(date desc, _updatedAt desc){
-        title, date, slug, datacia, _type, excerpt
-      }`);
+        title, date, slug, datacia, _type, excerpt, link
+      }[0..2]`);
   return results;
 }
 
