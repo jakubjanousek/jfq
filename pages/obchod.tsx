@@ -56,21 +56,15 @@ const Kontakt: React.FC = () => (
       <Item img="obchod/druhypes130-2.jpg">
         Druhý pes, tretia fáza
         <br />
-        10,00 EUR
+        6,00 EUR
       </Item>
       <Item img="obchod/Ein Stein Blues300_2.jpg">
         Ein-stein blues
         <br />
-        10,00 EUR
+        6,00 EUR
       </Item>
       <Item img="obchod/Duopak_maly2.jpg">
-        Dvojpack dvoch ľubovolných CD Jednofázového kvasenia je možné zakúpiť za
-        zvýhodnenú cenu 15,00 EUR
-      </Item>
-      <Item img="obchod/slnovratcd130-2.jpg">
-        Slnovrat: Nikdy tak nebolo (2CD)
-        <br />
-        10,00 EUR
+        25% zľava na ľubovolnú dvojkombináciu CD
       </Item>
       <Item img="obchod/triquetra130-2.jpg">
         Slnovrat: Triquetra
@@ -85,7 +79,7 @@ const Kontakt: React.FC = () => (
       <Item img="obchod/Mapy130.jpg">
         Miloš Janoušek: Mapy labyrintu
         <br />
-        7,0 EUR
+        6,00 EUR
       </Item>
     </div>
 
@@ -106,11 +100,6 @@ const Kontakt: React.FC = () => (
         <br />
         5,00 EUR
       </Item>
-      <Item img="obchod/zivotop.jpg">
-        Miloš Janoušek: Životopis z nevydanej knihy
-        <br />
-        2,00 EUR
-      </Item>
       <Item img="obchod/folk_slov.jpg">
         Miloš Janoušek a kol.: Folk na Slovensku (+CD)
         <br />
@@ -127,7 +116,7 @@ const Kontakt: React.FC = () => (
         7,00 EUR
       </Item>
       <Item img="obchod/Dvojpack3.jpg">
-        Dvojpack CD Mapy labyrintu a knihy Testament za zvýhodnenú cenu 12,00
+        Dvojpack CD Mapy labyrintu a knihy Testament za zvýhodnenú cenu 11,00
         EUR
       </Item>
     </div>
