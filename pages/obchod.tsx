@@ -63,9 +63,6 @@ const Kontakt: React.FC = () => (
         <br />
         6,00 EUR
       </Item>
-      <Item img="obchod/Duopak_maly2.jpg">
-        25% zľava na ľubovolnú dvojkombináciu CD
-      </Item>
       <Item img="obchod/triquetra130-2.jpg">
         Slnovrat: Triquetra
         <br />
@@ -81,12 +78,15 @@ const Kontakt: React.FC = () => (
         <br />
         6,00 EUR
       </Item>
+      <Item img="obchod/Duopak_maly2.jpg">
+        25% zľava na ľubovolnú dvojkombináciu CD
+      </Item>
     </div>
 
     <PageSubHeading>Knihy:</PageSubHeading>
     <div className="-m-3 flex flex-wrap">
       <Item img="obchod/dixieland.jpg">
-        Dušan Valúch: Vražedný dixieland 5,00 EUR
+        Dušan Valúch: Vražedný dixieland
         <br />
         5,0 EUR
       </Item>
