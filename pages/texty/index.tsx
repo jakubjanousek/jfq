@@ -34,8 +34,8 @@ const Texty: React.FC<Props> = ({ albums }) => {
                 src={
                   imageBuilder
                     .image(album.picture)
-                    .height(200)
-                    .width(200)
+                    .height(600)
+                    .width(600)
                     .url()!
                 }
               />

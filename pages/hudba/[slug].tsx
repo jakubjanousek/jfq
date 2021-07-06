@@ -41,6 +41,8 @@ const Album: React.FC<Props> = ({ album, songInfo }) => {
             alt={`Obálka ${album.nazov}`}
             className="mb-6 w-full"
             style={{ maxWidth: "450px" }}
+            height={300}
+            width={300}
             src={
               imageBuilder.image(album.picture).height(600).width(600).url()!
             }

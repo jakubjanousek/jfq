@@ -32,8 +32,8 @@ const Category: React.FC<{ albums: AlbumOverview[]; title: string }> = ({
                 src={
                   imageBuilder
                     .image(album.picture)
-                    .height(200)
-                    .width(200)
+                    .height(340)
+                    .width(340)
                     .url()!
                 }
               />
