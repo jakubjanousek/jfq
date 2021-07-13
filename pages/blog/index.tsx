@@ -8,13 +8,13 @@ import Date from "../../components/Date";
 import React from "react";
 import getPageTitle from "../../utils/getPageTitle";
 import Head from "next/head";
-import sideImgs from "../../utils/sideImgs";
+import dalekohlad from "../../public/sidebg5.png";
 
 type Props = { blogPosts: any[] };
 
 const Blog: React.FC<Props> = ({ blogPosts }) => {
   return (
-    <Layout sideImg={sideImgs.dalekohlad}>
+    <Layout sideImg={dalekohlad}>
       <Head>
         <title>{getPageTitle("Blog")}</title>
       </Head>

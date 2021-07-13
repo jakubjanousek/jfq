@@ -42,7 +42,7 @@ const Texty: React.FC<Props> = ({ albums }) => {
             </div>
             <div className="p-4 w-full sm:w-1/2 md:w-2/3">
               {album.disky?.map((disk) => (
-                <div className="mb-4">
+                <div className="mb-4" key={disk.title}>
                   <>
                     {album.disky && album.disky.length > 1 && (
                       <PageSubHeading>{disk.title}</PageSubHeading>

@@ -7,11 +7,23 @@ import VideoEmbed from "../components/VideoEmbed";
 import React from "react";
 import Head from "next/head";
 import getPageTitle from "../utils/getPageTitle";
+import Image from "next/image";
 
-const SmallFoto: React.FC<{ src: string }> = ({ src }) => (
-  <Link href={src}>
+import mainFoto from "../public/foto/DSC_1006.jpg";
+
+import foto1 from "../public/foto/DSC_0060.jpg";
+import foto2 from "../public/foto/JFQ v Divadle a_ha_2.jpg";
+import foto3 from "../public/foto/DSC_1820.jpg";
+import foto4 from "../public/foto/ERA0241.jpg";
+import foto5 from "../public/foto/DSC_1854.jpg";
+import foto6 from "../public/foto/DSC_1894.jpg";
+
+const Foto: React.FC<{ img: StaticImageData }> = ({ img }) => (
+  <Link href={img.src}>
     <a target="blank">
-      <img className="block mb-8" src={src} />
+      <div className="mb-8">
+        <Image className="block mb-8" src={img} placeholder="blur" />
+      </div>
     </a>
   </Link>
 );
@@ -52,18 +64,18 @@ const FotoVideoPage: React.FC = () => (
       <div className="p-4 w-full sm:w-1/2 md:w-2/3">
         <PageSubHeading>Foto</PageSubHeading>
         <div className="-m-4 flex flex-wrap">
-          <div className="p-4 w-full">
-            <img className="block" src="/foto/DSC_1006.jpg" />
+          <div className="p-4 -mb-8 w-full">
+            <Foto img={mainFoto} />
           </div>
           <div className="p-4 w-full md:w-1/3">
-            <SmallFoto src="/foto/DSC_0060.jpg" />
-            <SmallFoto src="/foto/JFQ v Divadle a_ha_2.jpg" />
-            <SmallFoto src="/foto/DSC_1820.jpg" />
+            <Foto img={foto1} />
+            <Foto img={foto2} />
+            <Foto img={foto3} />
           </div>
           <div className="p-4 w-full md:w-2/3">
-            <SmallFoto src="/foto/ERA0241.jpg" />
-            <SmallFoto src="/foto/DSC_1854.jpg" />
-            <SmallFoto src="/foto/DSC_1894.jpg" />
+            <Foto img={foto4} />
+            <Foto img={foto5} />
+            <Foto img={foto6} />
           </div>
         </div>
       </div>

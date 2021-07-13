@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import getPageTitle from "../../utils/getPageTitle";
 import Head from "next/head";
-import sideImgs from "../../utils/sideImgs";
+import tukan from "../../public/sidebg4.png";
 
 type Props = { album: AlbumDetail; lyrics: AlbumTrack[] };
 
@@ -32,7 +32,7 @@ const Album: React.FC<Props> = ({ album, lyrics }) => {
   }, []);
 
   return (
-    <Layout sideImg={sideImgs.tukan}>
+    <Layout sideImg={tukan}>
       <Head>
         <title>{getPageTitle(`Texty ${album.nazov}`)}</title>
       </Head>

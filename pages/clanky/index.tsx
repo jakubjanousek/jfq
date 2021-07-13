@@ -6,13 +6,13 @@ import Date from "../../components/Date";
 import React from "react";
 import getPageTitle from "../../utils/getPageTitle";
 import Head from "next/head";
-import sideImgs from "../../utils/sideImgs";
+import vzducholod from "../../public/sidebg1.png";
 
 type Props = { articles: any[] };
 
 const Articles: React.FC<Props> = ({ articles }) => {
   return (
-    <Layout sideImg={sideImgs.vzducholod}>
+    <Layout sideImg={vzducholod}>
       <Head>
         <title>{getPageTitle("Články")}</title>
       </Head>

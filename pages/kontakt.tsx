@@ -3,10 +3,10 @@ import Layout from "../components/Layout";
 import PageHeading from "../components/PageHeading";
 import PageSubHeading from "../components/PageSubHeading";
 import getPageTitle from "../utils/getPageTitle";
-import sideImgs from "../utils/sideImgs";
+import chobotnica from "../public/sidebg3.png";
 
 const Kontakt: React.FC = () => (
-  <Layout sideImg={sideImgs.chobotnica}>
+  <Layout sideImg={chobotnica}>
     <Head>
       <title>{getPageTitle("Kontakt")}</title>
     </Head>
