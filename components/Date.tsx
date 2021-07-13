@@ -4,8 +4,8 @@ type Props = { dateString: string; displayTime?: boolean };
 
 const Date: React.FC<Props> = ({ dateString, displayTime }) => {
   const date = parseISO(dateString);
-  const formattedDate = format(date, "d.M.yyyy");
-  const formattedTime = format(date, "HH:mm");
+  const formattedDate = date && format(date, "d.M.yyyy");
+  const formattedTime = date && format(date, "HH:mm");
   const output = displayTime
     ? `${formattedDate} o ${formattedTime} h`
     : formattedDate;
