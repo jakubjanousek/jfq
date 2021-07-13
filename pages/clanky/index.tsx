@@ -6,7 +6,7 @@ import Date from "../../components/Date";
 import React from "react";
 import getPageTitle from "../../utils/getPageTitle";
 import Head from "next/head";
-import vzducholod from "../../public/sidebg1.png";
+import vzducholod from "../../public/sidebg1.jpg";
 
 type Props = { articles: any[] };
 

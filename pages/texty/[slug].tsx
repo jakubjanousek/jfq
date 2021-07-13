@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import getPageTitle from "../../utils/getPageTitle";
 import Head from "next/head";
-import tukan from "../../public/sidebg4.png";
+import tukan from "../../public/sidebg4.jpg";
 
 type Props = { album: AlbumDetail; lyrics: AlbumTrack[] };
 

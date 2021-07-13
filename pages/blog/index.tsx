@@ -8,7 +8,7 @@ import Date from "../../components/Date";
 import React from "react";
 import getPageTitle from "../../utils/getPageTitle";
 import Head from "next/head";
-import dalekohlad from "../../public/sidebg5.png";
+import dalekohlad from "../../public/sidebg5.jpg";
 
 type Props = { blogPosts: any[] };
 

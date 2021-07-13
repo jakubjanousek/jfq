@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import PageHeading from "../components/PageHeading";
 import PageSubHeading from "../components/PageSubHeading";
 import getPageTitle from "../utils/getPageTitle";
-import chobotnica from "../public/sidebg3.png";
+import chobotnica from "../public/sidebg3.jpg";
 
 const Kontakt: React.FC = () => (
   <Layout sideImg={chobotnica}>
