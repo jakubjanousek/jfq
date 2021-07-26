@@ -46,7 +46,7 @@ export async function getAllPostsForHome(preview: boolean) {
   const results = await getClient(preview)
     .fetch(`*[_type == "novinka"] | order(date desc, _updatedAt desc){
         date, content
-      }[0..2]`);
+      }[0..3]`);
   return results;
 }
 
