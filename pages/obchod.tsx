@@ -48,6 +48,16 @@ const Kontakt: React.FC = () => (
       stránke www.indiesrec.eu
     </p>
     <div className="-m-3 flex flex-wrap">
+      <Item img="obchod/v-buducom.jpg">
+        V buducom živote
+        <br />
+        10,00 EUR
+      </Item>
+      <Item img="obchod/Rybi_menuet130_RAM.jpg">
+        Jednofázové kvasenie: Rybí menuet
+        <br />
+        10,0 EUR
+      </Item>
       <Item img="obchod/bezfazovy130-2.jpg">
         Bezfázový stav (2CD)
         <br />
@@ -67,11 +77,6 @@ const Kontakt: React.FC = () => (
         Slnovrat: Triquetra
         <br />
         6,00 EUR
-      </Item>
-      <Item img="obchod/Rybi_menuet130_RAM.jpg">
-        Jednofázové kvasenie: Rybí menuet
-        <br />
-        10,0 EUR
       </Item>
       <Item img="obchod/Mapy130.jpg">
         Miloš Janoušek: Mapy labyrintu
