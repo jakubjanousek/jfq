@@ -98,9 +98,9 @@ export async function getFutureConcerts(preview: boolean) {
 export async function getBlogPosts(limit?: number) {
   const limitString = limit ? `[0..${limit}]` : "";
   const results =
-    await client.fetch(`*[_type == "blog"]${limitString} | order(date desc, _updatedAt desc){
+    await client.fetch(`*[_type == "blog"] | order(date desc, _updatedAt desc){
           title, date, slug, excerpt
-        }`);
+        }${limitString}`);
   return results;
 }
 
@@ -114,9 +114,9 @@ export async function getBlogPost(slug: string, preview: boolean) {
 export async function getArticles(limit?: number) {
   const limitString = limit ? `[0..${limit}]` : "";
   const results =
-    await client.fetch(`*[_type == "clanky"]${limitString} | order(date desc, _updatedAt desc){
+    await client.fetch(`*[_type == "clanky"] | order(date desc, _updatedAt desc){
           title, date, slug, excerpt, link, datacia
-        }`);
+        }${limitString}`);
   return results;
 }
 
@@ -130,8 +130,8 @@ export async function getArticle(slug: string, preview: boolean) {
 export async function getInvites(limit?: number) {
   const limitString = limit ? `[0..${limit}]` : "";
   const results =
-    await client.fetch(`*[_type == "pozvanka"]${limitString} | order(date desc, _updatedAt desc){
+    await client.fetch(`*[_type == "pozvanka"] | order(date desc, _updatedAt desc){
           picture, date
-        }`);
+        }${limitString}`);
   return results;
 }
