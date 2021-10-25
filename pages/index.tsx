@@ -39,13 +39,17 @@ const Section: React.FC<{ bg: string }> = ({ bg, children }) => (
 const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
   return (
     <Layout>
-      <Divider className="mb-2" />
-      <div className="mb-2 mx-auto max-w-2xl text-center font-serif font-bold italic text-2xl">
-        V hudbe skupiny Jednofázové kvasenie sa mieša folk s rockom, džez s
-        vážnou hudbou, country s ľudovkou a naopak – ľudovka s country, vážna
-        hudba s džezom, rock s folkom a naopak...
-      </div>
-      <Divider className="mb-12" />
+      <a href="/hudba/v-buducom-zivote">
+        <div className="mb-2 mx-auto max-w-2xl text-center font-serif font-bold italic text-2xl">
+          <div className="m-auto mb-4" style={{ maxWidth: "200px" }}>
+            <img src="obchod/v-buducom.jpg" width="800" height="733" />
+          </div>
+          Nové CD V budúcom živote vyšlo v októbri 2021
+        </div>
+        <Divider />
+        <strong className="text-center block underline">Zisti viac...</strong>
+      </a>
+      <div className="mb-16" />
 
       <div className="flex flex-wrap -m-4">
         <Section bg="bg2">
