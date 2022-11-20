@@ -3,7 +3,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useState } from "react";
 import { getRandomPandulak } from "./Pandulak/utils";
-import Image from "next/image";
+import Image from "next/legacy/image";
+import { StaticImageData } from "next/legacy/image";
 
 type Props = { title?: string; sideImg?: StaticImageData };
 
