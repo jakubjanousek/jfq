@@ -38,6 +38,7 @@ export const getStaticProps: GetStaticProps = async ({
   const blog = await getBlogPost(params.slug, preview);
   return {
     props: { blog, preview },
+    revalidate: 60,
   };
 };
 
@@ -50,7 +51,7 @@ export async function getStaticPaths() {
           slug: blog.slug.current,
         },
       })) || [],
-    fallback: false,
+    fallback: "blocking",
   };
 }
 

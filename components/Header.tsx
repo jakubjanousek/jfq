@@ -11,14 +11,13 @@ const HeaderLink: React.FC<{
   const router = useRouter();
   const active = router.pathname === href;
   return (
-    <Link href={href}>
-      <a
-        className={`inline-block px-2 py-1 ${
-          active ? "underline" : "hover:underline"
-        }`}
-      >
-        {text}
-      </a>
+    <Link
+      href={href}
+      className={`inline-block px-2 py-1 ${
+        active ? "underline" : "hover:underline"
+      }`}
+    >
+      {text}
     </Link>
   );
 };
@@ -28,12 +27,10 @@ const Header: React.FC<Props> = ({ bg }) => {
     <div className="text-center">
       <Pandulak bg={bg} transition />
       <div className="mb-8 font-serif font-extrabold text-2xl leading-none sm:text-5xl">
-        <Link href="/">
-          <a className="hover:underline">
-            Jednofázové
-            <br />
-            kvasenie
-          </a>
+        <Link href="/" className="hover:underline">
+          Jednofázové
+          <br />
+          kvasenie
         </Link>
       </div>
 

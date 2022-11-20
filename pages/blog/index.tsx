@@ -42,7 +42,7 @@ const Blog: React.FC<Props> = ({ blogPosts }) => {
 export async function getStaticProps({ preview = false }) {
   const blogPosts = await getBlogPosts();
   return {
-    props: { blogPosts, preview },
+    props: { blogPosts, preview },revalidate: 60
   };
 }
 

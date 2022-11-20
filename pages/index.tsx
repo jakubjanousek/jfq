@@ -50,8 +50,8 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
               <SanityBlock blocks={post.content} />
             </div>
           ))}
-          {/*<Link href="/novinky">
-            <a className="underline">...viac noviniek</a>
+          {/*<Link href="/novinky" className="underline">
+            ...viac noviniek
           </Link>*/}
         </Section>
         <Section bg="bg9">
@@ -92,9 +92,7 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
                     {content}
                   </a>
                 ) : (
-                  <Link {...linkParams}>
-                    {content}
-                  </Link>
+                  <Link {...linkParams}>{content}</Link>
                 )}
               </div>
             );
@@ -141,8 +139,8 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
                 </div>
               ))}
             </div>
-            {/*<Link href="/novinky">
-              <a className="block mt-4 underline">...viac pozvánok</a>
+            {/*<Link href="/novinky" className="block mt-4 underline">
+              ...viac pozvánok
                     </Link>*/}
           </div>
           <HomeSubHeading>Video</HomeSubHeading>
@@ -166,6 +164,7 @@ export async function getStaticProps({ preview = false }) {
   const longForms = await getLongFormsForHome(preview);
   return {
     props: { posts, shows, preview, invites, longForms },
+    revalidate: 60,
   };
 }
 

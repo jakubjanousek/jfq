@@ -69,7 +69,7 @@ export const getStaticProps: GetStaticProps = async ({
       )
       .filter((track) => track.text) || [];
   return {
-    props: { album, preview, lyrics },
+    props: { album, preview, lyrics }, revalidate: 60
   };
 };
 
@@ -82,7 +82,7 @@ export async function getStaticPaths() {
           slug: album.slug,
         },
       })) || [],
-    fallback: false,
+    fallback: 'blocking',
   };
 }
 

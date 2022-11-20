@@ -36,6 +36,7 @@ export const getStaticProps: GetStaticProps = async ({
   const article = await getArticle(params.slug, preview);
   return {
     props: { article, preview },
+    revalidate: 60,
   };
 };
 
@@ -50,7 +51,7 @@ export async function getStaticPaths() {
             slug: article.slug.current,
           },
         })) || [],
-    fallback: false,
+    fallback: "blocking",
   };
 }
 

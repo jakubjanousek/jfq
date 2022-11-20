@@ -22,23 +22,18 @@ const Category: React.FC<{ albums: AlbumOverview[]; title: string }> = ({
             href="/hudba/[slug]"
             as={`/hudba/${album.slug}`}
             key={album.slug}
-            className="hover:underline">
-
+            className="hover:underline"
+          >
             <img
               height={200}
               width={200}
               alt={`Obálka ${album.nazov}`}
               className="mb-1 block"
               src={
-                imageBuilder
-                  .image(album.picture)
-                  .height(340)
-                  .width(340)
-                  .url()!
+                imageBuilder.image(album.picture).height(340).width(340).url()!
               }
             />
             {album.nazov},{format(parseISO(album.datacia_rok), "yyyy")}
-
           </Link>
         </div>
       ))}
@@ -74,6 +69,7 @@ export async function getStaticProps({ preview = false }) {
   const albums = await getAllAlbums();
   return {
     props: { albums, preview },
+    revalidate: 60,
   };
 }
 

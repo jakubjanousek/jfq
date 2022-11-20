@@ -44,7 +44,8 @@ const Articles: React.FC<Props> = ({ articles }) => {
             href="/clanky/[slug]"
             as={`/clanky/${article.slug.current}`}
             key={article.slug.current}
-            className="block mb-4">
+            className="block mb-4"
+          >
             {linkContent}
           </Link>
         );
@@ -57,6 +58,7 @@ export async function getStaticProps({ preview = false }) {
   const articles = await getArticles();
   return {
     props: { articles, preview },
+    revalidate: 60,
   };
 }
 

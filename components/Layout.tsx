@@ -13,7 +13,7 @@ const Layout: React.FC<Props> = ({ children, title, sideImg }) => {
   return (
     <>
       <Head>
-        <title>{title ? `${title} | ` : ""}Jednofázové kvasenie</title>
+        <title>{`${title ? `${title} | ` : ""}Jednofázové kvasenie`}</title>
       </Head>
       <div className="min-h-screen flex flex-col">
         <div className="flex-1">

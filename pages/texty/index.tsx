@@ -51,14 +51,13 @@ const Texty: React.FC<Props> = ({ albums }) => {
                       {disk.tracklist?.map((track, index) => (
                         <li key={index}>
                           {track.text ? (
-                            (<Link
+                            <Link
                               href="/texty/[slug]"
                               as={`/texty/${album.slug}#${track.slug.current}`}
-                              className="underline hover:no-underline">
-
+                              className="underline hover:no-underline"
+                            >
                               {track.title}
-
-                            </Link>)
+                            </Link>
                           ) : (
                             track.title
                           )}
@@ -81,6 +80,7 @@ export async function getStaticProps({ preview = false }) {
 
   return {
     props: { albums, preview },
+    revalidate: 60,
   };
 }
 

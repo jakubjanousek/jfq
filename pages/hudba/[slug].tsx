@@ -105,6 +105,7 @@ export const getStaticProps: GetStaticProps = async ({
       .filter((track) => track.o_pesnicke) || [];
   return {
     props: { album, preview, songInfo },
+    revalidate: 60,
   };
 };
 
@@ -117,7 +118,7 @@ export async function getStaticPaths() {
           slug: album.slug,
         },
       })) || [],
-    fallback: false,
+    fallback: "blocking",
   };
 }
 
