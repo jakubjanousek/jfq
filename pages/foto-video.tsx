@@ -7,7 +7,7 @@ import VideoEmbed from "../components/VideoEmbed";
 import React from "react";
 import Head from "next/head";
 import getPageTitle from "../utils/getPageTitle";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 import mainFoto from "../public/foto/DSC_1006.jpg";
 
