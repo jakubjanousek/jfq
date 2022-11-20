@@ -44,8 +44,8 @@ const Articles: React.FC<Props> = ({ articles }) => {
             href="/clanky/[slug]"
             as={`/clanky/${article.slug.current}`}
             key={article.slug.current}
-          >
-            <a className="block mb-4">{linkContent}</a>
+            className="block mb-4">
+            {linkContent}
           </Link>
         );
       })}

@@ -93,17 +93,17 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
                   </a>
                 ) : (
                   <Link {...linkParams}>
-                    <a>{content}</a>
+                    {content}
                   </Link>
                 )}
               </div>
             );
           })}
-          <Link href="/clanky">
-            <a className="block underline">...články</a>
+          <Link href="/clanky" className="block underline">
+            ...články
           </Link>
-          <Link href="/blog">
-            <a className="block underline">...blog</a>
+          <Link href="/blog" className="block underline">
+            ...blog
           </Link>
         </Section>
         <Section bg="bg16">

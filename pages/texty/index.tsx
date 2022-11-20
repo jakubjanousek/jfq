@@ -51,14 +51,14 @@ const Texty: React.FC<Props> = ({ albums }) => {
                       {disk.tracklist?.map((track, index) => (
                         <li key={index}>
                           {track.text ? (
-                            <Link
+                            (<Link
                               href="/texty/[slug]"
                               as={`/texty/${album.slug}#${track.slug.current}`}
-                            >
-                              <a className="underline hover:no-underline">
-                                {track.title}
-                              </a>
-                            </Link>
+                              className="underline hover:no-underline">
+
+                              {track.title}
+
+                            </Link>)
                           ) : (
                             track.title
                           )}

@@ -19,13 +19,13 @@ import foto5 from "../public/foto/DSC_1854.jpg";
 import foto6 from "../public/foto/DSC_1894.jpg";
 
 const Foto: React.FC<{ img: StaticImageData }> = ({ img }) => (
-  <Link href={img.src}>
-    <a target="blank">
-      <div className="mb-8">
-        <Image className="block mb-8" src={img} placeholder="blur" />
-      </div>
-    </a>
-  </Link>
+  (<Link href={img.src} target="blank">
+
+    <div className="mb-8">
+      <Image className="block mb-8" src={img} placeholder="blur" />
+    </div>
+
+  </Link>)
 );
 
 const FotoVideoPage: React.FC = () => (

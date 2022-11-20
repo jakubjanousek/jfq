@@ -22,23 +22,23 @@ const Category: React.FC<{ albums: AlbumOverview[]; title: string }> = ({
             href="/hudba/[slug]"
             as={`/hudba/${album.slug}`}
             key={album.slug}
-          >
-            <a className="hover:underline">
-              <img
-                height={200}
-                width={200}
-                alt={`Obálka ${album.nazov}`}
-                className="mb-1 block"
-                src={
-                  imageBuilder
-                    .image(album.picture)
-                    .height(340)
-                    .width(340)
-                    .url()!
-                }
-              />
-              {album.nazov}, {format(parseISO(album.datacia_rok), "yyyy")}
-            </a>
+            className="hover:underline">
+
+            <img
+              height={200}
+              width={200}
+              alt={`Obálka ${album.nazov}`}
+              className="mb-1 block"
+              src={
+                imageBuilder
+                  .image(album.picture)
+                  .height(340)
+                  .width(340)
+                  .url()!
+              }
+            />
+            {album.nazov},{format(parseISO(album.datacia_rok), "yyyy")}
+
           </Link>
         </div>
       ))}

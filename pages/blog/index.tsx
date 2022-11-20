@@ -20,20 +20,20 @@ const Blog: React.FC<Props> = ({ blogPosts }) => {
       </Head>
       <PageHeading>Blog</PageHeading>
       {blogPosts.map((blog) => (
-        <Link
+        (<Link
           href="/blog/[slug]"
           as={`/blog/${blog.slug.current}`}
           key={blog.slug.current}
-        >
-          <a className="block mb-4">
-            <div className="underline hover:no-underline">
-              <strong>
-                {blog.title} (<Date dateString={blog.date} />)
-              </strong>
-            </div>
-            <div className="no-underline">{blog.excerpt}</div>
-          </a>
-        </Link>
+          className="block mb-4">
+
+          <div className="underline hover:no-underline">
+            <strong>
+              {blog.title} (<Date dateString={blog.date} />)
+            </strong>
+          </div>
+          <div className="no-underline">{blog.excerpt}</div>
+
+        </Link>)
       ))}
     </Layout>
   );
