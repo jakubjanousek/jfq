@@ -45,7 +45,7 @@ export const imageBuilder = sanityImage(client);
 export async function getAllPostsForHome(preview: boolean) {
   const results = await getClient(preview)
     .fetch(`*[_type == "novinka"] | order(date desc, _updatedAt desc){
-        date, content
+        date, content, youtubeId
       }[0..3]`);
   return results;
 }

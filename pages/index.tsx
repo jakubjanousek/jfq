@@ -13,6 +13,7 @@ import PageSubHeading from "../components/PageSubHeading";
 import Pandulak from "../components/Pandulak";
 import Divider from "../components/Divider";
 import Link from "next/link";
+import { YouTubeEmbed } from "@next/third-parties/google";
 
 type Props = {
   posts: any[];
@@ -47,6 +48,11 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
               <div className="font-serif">
                 <Date dateString={post.date} />
               </div>
+              {post.youtubeId && (
+                <div className="my-4">
+                  <YouTubeEmbed videoid={post.youtubeId} />
+                </div>
+              )}
               <SanityBlock blocks={post.content} />
             </div>
           ))}
@@ -144,13 +150,11 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
                     </Link>*/}
           </div>
           <HomeSubHeading>Video</HomeSubHeading>
-          <iframe
-            loading="lazy"
-            src="https://www.youtube.com/embed/ZHbKyAijx-s"
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+          <div className="mb-8">
+            <YouTubeEmbed videoid="TmrNMEHq1dU" />
+          </div>
+          <YouTubeEmbed videoid="ZHbKyAijx-s" />
+          {/* <YouTubeEmbed videoid="g5TKmPog2wc" /> */}
         </Section>
       </div>
     </Layout>
