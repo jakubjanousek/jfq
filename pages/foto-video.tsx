@@ -1,7 +1,5 @@
 import Layout from "../components/Layout";
-import PageHeading from "../components/PageHeading";
 import PageSubHeading from "../components/PageSubHeading";
-import PagesManifestPlugin from "next/dist/build/webpack/plugins/pages-manifest-plugin";
 import Link from "next/link";
 import VideoEmbed from "../components/VideoEmbed";
 import React from "react";
@@ -17,15 +15,20 @@ import foto3 from "../public/foto/DSC_1820.jpg";
 import foto4 from "../public/foto/ERA0241.jpg";
 import foto5 from "../public/foto/DSC_1854.jpg";
 import foto6 from "../public/foto/DSC_1894.jpg";
+import { YouTubeEmbed } from "@next/third-parties/google";
 
 const Foto: React.FC<{ img: StaticImageData }> = ({ img }) => (
-  (<Link href={img.src} target="blank">
-
+  <Link href={img.src} target="blank">
     <div className="mb-8">
       <Image className="block mb-8" src={img} placeholder="blur" />
     </div>
+  </Link>
+);
 
-  </Link>)
+const Video: React.FC<{ id: string }> = ({ id }) => (
+  <div className="mb-8">
+    <YouTubeEmbed videoid={id} />
+  </div>
 );
 
 const FotoVideoPage: React.FC = () => (
@@ -36,30 +39,12 @@ const FotoVideoPage: React.FC = () => (
     <div className="-m-4 flex flex-wrap">
       <div className="p-4 w-full sm:w-1/2 md:w-1/3">
         <PageSubHeading>Video</PageSubHeading>
-        <VideoEmbed
-          className="mb-8"
-          src="https://www.youtube.com/embed/ZHbKyAijx-s"
-        />
-        <VideoEmbed
-          className="mb-8"
-          src="https://www.youtube.com/embed/tXHEdVEzwLk"
-        />
-        <VideoEmbed
-          className="mb-8"
-          src="https://www.youtube.com/embed/NhOm6SB94pQ"
-        />
-        <VideoEmbed
-          className="mb-8"
-          src="https://www.youtube.com/embed/B_Go91RAWOo"
-        />
-        <VideoEmbed
-          className="mb-8"
-          src="https://www.youtube.com/embed/Qk5IzBVHUZM"
-        />
-        <VideoEmbed
-          className="mb-8"
-          src="https://www.youtube.com/embed/OddZ7w3T5cI"
-        />
+        <Video id="ZHbKyAijx-s" />
+        <Video id="tXHEdVEzwLk" />
+        <Video id="NhOm6SB94pQ" />
+        <Video id="B_Go91RAWOo" />
+        <Video id="Qk5IzBVHUZM" />
+        <Video id="OddZ7w3T5cI" />
       </div>
       <div className="p-4 w-full sm:w-1/2 md:w-2/3">
         <PageSubHeading>Foto</PageSubHeading>
