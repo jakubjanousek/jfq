@@ -5,7 +5,7 @@ import VideoEmbed from "../components/VideoEmbed";
 import React from "react";
 import Head from "next/head";
 import getPageTitle from "../utils/getPageTitle";
-import Image, { StaticImageData } from "next/legacy/image";
+import Image, { StaticImageData } from "next/image";
 
 import mainFoto from "../public/foto/DSC_1006.jpg";
 
@@ -20,7 +20,7 @@ import { YouTubeEmbed } from "@next/third-parties/google";
 const Foto: React.FC<{ img: StaticImageData }> = ({ img }) => (
   <Link href={img.src} target="blank">
     <div className="mb-8">
-      <Image className="block mb-8" src={img} placeholder="blur" />
+      <Image className="block mb-8" src={img} placeholder="blur" alt="" />
     </div>
   </Link>
 );

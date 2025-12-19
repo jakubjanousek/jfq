@@ -3,8 +3,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useState } from "react";
 import { getRandomPandulak } from "./Pandulak/utils";
-import Image from "next/legacy/image";
-import { StaticImageData } from "next/legacy/image";
+import Image from "next/image";
+import { StaticImageData } from "next/image";
 
 type Props = {
   title?: string;
@@ -28,7 +28,7 @@ const Layout: React.FC<Props> = ({ children, title, sideImg }) => {
               {sideImg ? (
                 <div className="-m-4 flex flex-wrap">
                   <div className="p-4 hidden w-full md:block md:w-1/4">
-                    <Image src={sideImg} />
+                    <Image src={sideImg} alt="" />
                   </div>
                   <div className="p-4 w-full md:w-3/4">{children}</div>
                 </div>

@@ -2,7 +2,7 @@ import client, { previewClient } from "./sanity";
 import { format } from "date-fns";
 import sanityImage from "@sanity/image-url";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import { BlockContentProps } from "@sanity/block-content-to-react";
+import { PortableTextBlock } from "@portabletext/react";
 const getClient = (preview: boolean) => (preview ? previewClient : client);
 
 const todayDate = format(new Date(), "yyyy-MM-dd");
@@ -21,8 +21,8 @@ export type AlbumDetail = {
   kategoria: string;
   picture: SanityImageSource;
   slug: string;
-  data?: BlockContentProps;
-  o_albume?: BlockContentProps;
+  data?: PortableTextBlock[];
+  o_albume?: PortableTextBlock[];
   disky?: AlbumDisk[];
 };
 export type AlbumDisk = { title: string; tracklist?: AlbumTrack[] };
@@ -30,8 +30,8 @@ export type AlbumTrack = {
   title: string;
   autor?: string;
   slug: { current: string };
-  o_pesnicke?: BlockContentProps;
-  text?: BlockContentProps;
+  o_pesnicke?: PortableTextBlock[];
+  text?: PortableTextBlock[];
 };
 export type AlbumWithLyrics = {
   nazov: string;

@@ -1,17 +1,28 @@
-import BlockContent, {
-  BlockContentProps,
-} from "@sanity/block-content-to-react";
+import { PortableText, PortableTextComponents } from "@portabletext/react";
 import markdownStyles from "./index.module.css";
+import { imageBuilder } from "../../lib/api";
 
 type Props = {
-  blocks: BlockContentProps;
+  blocks: any;
   imgLeft?: boolean;
 };
 
-const serializers = {
+const components: PortableTextComponents = {
   types: {
-    youtube: ({ node }: { node: any }) => {
-      const { url } = node;
+    image: ({ value }: { value: any }) => {
+      if (!value?.asset?._ref) {
+        return null;
+      }
+      return (
+        <img
+          src={imageBuilder.image(value).url()}
+          alt={value.alt || " "}
+          loading="lazy"
+        />
+      );
+    },
+    youtube: ({ value }: { value: any }) => {
+      const { url } = value;
       return (
         <iframe
           loading="lazy"
@@ -27,11 +38,7 @@ const serializers = {
 
 const SanityBlock: React.FC<Props> = ({ blocks, imgLeft }) => (
   <div className={markdownStyles.markdown}>
-    <BlockContent
-      projectId={process.env.NEXT_EXAMPLE_CMS_SANITY_PROJECT_ID}
-      dataset="production"
-      {...{ blocks, serializers }}
-    />
+    <PortableText value={blocks} components={components} />
   </div>
 );
 
