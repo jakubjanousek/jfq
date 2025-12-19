@@ -3,6 +3,48 @@
 @tailwind utilities;
 
 @layer components {
-  @import "./typography.css";
-  @import "./page-transitions.css";
+
+  @font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/Inter-Light.woff2?v=3.13") format("woff2"),
+    url("fonts/Inter-Light.woff?v=3.13") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/Inter-LightItalic.woff2?v=3.13") format("woff2"),
+    url("fonts/Inter-LightItalic.woff?v=3.13") format("woff");
+}
+
+strong {
+  @apply font-serif;
+
+  font-weight: 800 !important;
+}
+
+.page-body p {
+  @apply mb-4;
+}
+
+
+.page-transition-enter .page-body {
+  opacity: 0;
+}
+.page-transition-enter-active .page-body {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.page-transition-exit .page-body {
+  opacity: 1;
+}
+.page-transition-exit-active .page-body {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
 }
