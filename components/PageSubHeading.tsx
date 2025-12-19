@@ -1,4 +1,4 @@
-type Props = { className?: string };
+type Props = { className?: string; children: React.ReactNode };
 
 const PageSubHeading: React.FC<Props> = ({ children, className }) => (
   <h2 className={`${className || ""} mb-4 text-2xl font-serif font-black`}>

@@ -23,14 +23,19 @@ type Props = {
   preview: boolean;
 };
 
-const HomeSubHeading: React.FC = ({ children }) => (
+const HomeSubHeading: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => (
   <>
     <PageSubHeading className="text-center">{children}</PageSubHeading>
     <Divider className="-mt-2 mb-6" />
   </>
 );
 
-const Section: React.FC<{ bg: string }> = ({ bg, children }) => (
+const Section: React.FC<{ bg: string; children: React.ReactNode }> = ({
+  bg,
+  children,
+}) => (
   <div className="p-4 w-full lg:w-1/3">
     <Pandulak bg={bg} />
     {children}

@@ -6,7 +6,11 @@ import { getRandomPandulak } from "./Pandulak/utils";
 import Image from "next/legacy/image";
 import { StaticImageData } from "next/legacy/image";
 
-type Props = { title?: string; sideImg?: StaticImageData };
+type Props = {
+  title?: string;
+  sideImg?: StaticImageData;
+  children: React.ReactNode;
+};
 
 const Layout: React.FC<Props> = ({ children, title, sideImg }) => {
   const [bg] = useState(getRandomPandulak());

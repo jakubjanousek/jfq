@@ -6,7 +6,10 @@ import PageSubHeading from "../components/PageSubHeading";
 import getPageTitle from "../utils/getPageTitle";
 import ryba from "../public/sidebg2.jpg";
 
-const Item: React.FC<{ img: string }> = ({ img, children }) => (
+const Item: React.FC<{ img: string; children: React.ReactNode }> = ({
+  img,
+  children,
+}) => (
   <div className="p-3 w-1/2 sm:w-1/3 md:w-1/5">
     <img src={img} className="block" />
     <small>{children}</small>
