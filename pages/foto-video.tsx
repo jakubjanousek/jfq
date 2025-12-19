@@ -1,7 +1,6 @@
 import Layout from "../components/Layout";
 import PageSubHeading from "../components/PageSubHeading";
 import Link from "next/link";
-import VideoEmbed from "../components/VideoEmbed";
 import React from "react";
 import Head from "next/head";
 import getPageTitle from "../utils/getPageTitle";
@@ -15,19 +14,19 @@ import foto3 from "../public/foto/DSC_1820.jpg";
 import foto4 from "../public/foto/ERA0241.jpg";
 import foto5 from "../public/foto/DSC_1854.jpg";
 import foto6 from "../public/foto/DSC_1894.jpg";
-import { YouTubeEmbed } from "@next/third-parties/google";
+import VideoEmbed from "../components/VideoEmbed";
 
 const Foto: React.FC<{ img: StaticImageData }> = ({ img }) => (
   <Link href={img.src} target="blank">
-    <div className="mb-8">
-      <Image className="block mb-8" src={img} placeholder="blur" alt="" />
+    <div className="mb-8 overflow-hidden rounded-lg">
+      <Image className="block" src={img} placeholder="blur" alt="" />
     </div>
   </Link>
 );
 
 const Video: React.FC<{ id: string }> = ({ id }) => (
   <div className="mb-8">
-    <YouTubeEmbed videoid={id} />
+    <VideoEmbed videoid={id} />
   </div>
 );
 

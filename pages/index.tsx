@@ -13,7 +13,7 @@ import PageSubHeading from "../components/PageSubHeading";
 import Pandulak from "../components/Pandulak";
 import Divider from "../components/Divider";
 import Link from "next/link";
-import { YouTubeEmbed } from "@next/third-parties/google";
+import VideoEmbed from "../components/VideoEmbed";
 
 type Props = {
   posts: any[];
@@ -55,7 +55,7 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
               </div>
               {post.youtubeId && (
                 <div className="my-4">
-                  <YouTubeEmbed videoid={post.youtubeId} />
+                  <VideoEmbed videoid={post.youtubeId} />
                 </div>
               )}
               <SanityBlock blocks={post.content} />
@@ -156,10 +156,9 @@ const Home: React.FC<Props> = ({ posts, shows, invites, longForms }) => {
           </div>
           <HomeSubHeading>Video</HomeSubHeading>
           <div className="mb-8">
-            <YouTubeEmbed videoid="TmrNMEHq1dU" />
+            <VideoEmbed videoid="TmrNMEHq1dU" />
           </div>
-          <YouTubeEmbed videoid="ZHbKyAijx-s" />
-          {/* <YouTubeEmbed videoid="g5TKmPog2wc" /> */}
+          <VideoEmbed videoid="ZHbKyAijx-s" />
         </Section>
       </div>
     </Layout>
