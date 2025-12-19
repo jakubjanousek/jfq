@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { imageBuilder } from "../../lib/api";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { SanityImageSource } from "@sanity/image-url";
 
 type Props = {
   coverImg?: SanityImageSource;

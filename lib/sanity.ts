@@ -1,4 +1,4 @@
-import sanityClient from "@sanity/client";
+import { createClient } from "@sanity/client";
 
 const options = {
   // Find your project ID and dataset in `sanity.json` in your studio project
@@ -11,8 +11,8 @@ const options = {
   // data always (potentially slightly slower and a bit more expensive).
 };
 
-export default sanityClient(options);
-export const previewClient = sanityClient({
+export default createClient(options);
+export const previewClient = createClient({
   ...options,
   useCdn: false,
   token: process.env.NEXT_EXAMPLE_CMS_SANITY_API_TOKEN,

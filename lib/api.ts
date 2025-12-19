@@ -1,7 +1,6 @@
 import client, { previewClient } from "./sanity";
 import { format } from "date-fns";
-import sanityImage from "@sanity/image-url";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { createImageUrlBuilder, SanityImageSource } from "@sanity/image-url";
 import { PortableTextBlock } from "@portabletext/react";
 const getClient = (preview: boolean) => (preview ? previewClient : client);
 
@@ -40,7 +39,7 @@ export type AlbumWithLyrics = {
   disky?: AlbumDisk[];
 };
 
-export const imageBuilder = sanityImage(client);
+export const imageBuilder = createImageUrlBuilder(client);
 
 export async function getAllPostsForHome(preview: boolean) {
   const results = await getClient(preview)
